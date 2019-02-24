@@ -1,19 +1,18 @@
-# IVS-project
+Prostredi
+---------
 
-A group project for a course called Practical Aspects of Software Design. 
+Windows 64bit
 
-int main(argc, argv[])
-{
-  if(!coffee)
-  {
-    MakeCoffee();
-  }
-  else
-  {
-    DrinkCoffee(sip);
-  }
-}
+Autori
+------
 
-Have a nice day,
+Nazev tymu
+- xjezik03 Andrej Ježík 
+- xkubik34 Tibor Kubík
+- xdubec01 Branislav Dubec 
+- xstrba05 Boris Štrba
 
-Team leader hater85.
+Licence
+-------
+
+GNU GPL v.3 licence
