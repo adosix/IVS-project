@@ -1,19 +1,19 @@
-Prostredi
----------
+# IVS-project
 
-Ubuntu 64bit
-Windows 64bit
+A group project for a course called Practical Aspects of Software Design. 
 
-Autori
-------
+int main(argc, argv[])
+{
+  if(!coffee)
+  {
+    MakeCoffee();
+  }
+  else
+  {
+    DrinkCoffee(sip);
+  }
+}
 
-Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+Have a nice day,
 
-Licence
--------
-
-Tento program je poskytovan...
+Team leader hater85.
