@@ -1,7 +1,19 @@
-# IVS-project
+Prostredi
+---------
 
-A group project for a course called Practical Aspects of Software Design. 
+Ubuntu 64bit
+Windows 64bit
 
-Have a nice day,
+Autori
+------
 
-Team leader hater85.
+Nazev tymu
+- xlogin01 jmeno prijmeni 
+- xlogin02 jmeno prijmeni 
+- xlogin03 jmeno prijmeni 
+- xlogin04 jmeno prijmeni 
+
+Licence
+-------
+
+Tento program je poskytovan...
