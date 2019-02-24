@@ -7,10 +7,10 @@ Autori
 ------
 
 Nazev tymu
-- xjezik03 Andrej Ježík 
+- xjezik03 Andrej Ježík
 - xkubik34 Tibor Kubík
-- xdubec01 Branislav Dubec 
-- xstrba05 Boris Štrba
+- xdubec01 Branislav Dubec
+- xstrba05 Boris Štrbák
 
 Licence
 -------
