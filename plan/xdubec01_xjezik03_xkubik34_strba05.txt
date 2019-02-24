@@ -1,4 +1,4 @@
-Team project for a course called Practical Aspects of Sowtware Design, studied at BUT FIT
+Team project for a course called Practical Aspects of Software Design, studied at BUT FIT
 
 ================================================
 
