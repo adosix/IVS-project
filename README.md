@@ -1,7 +1,7 @@
 Prostredi
 ---------
 
-Windows 64bit
+Ubuntu 18.04.2 LTS
 
 Autori
 ------
