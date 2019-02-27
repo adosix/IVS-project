@@ -1,8 +1,7 @@
-//======== Copyright (c) 2017, FIT VUT Brno, All rights reserved. ============//
+//======== Copyright (c) 2019, Rebus Calc, Inc. , All rights reserved. ============//
 //
-// Purpose:     White Box - Code under test
+// Purpose:     Mathematical library for calculator
 //
-// $NoKeywords: $ivs_project_1 $white_box_code.h
 // $Authors:    Branislav Dubec <xdubec01>
 //              Andrej Ježík <xjezik03>
 //				Tibor Kubík <xkubik34>
