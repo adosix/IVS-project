@@ -4,8 +4,8 @@
 //
 // $Authors:    Branislav Dubec <xdubec01>
 //              Andrej Ježík <xjezik03>
-//				Tibor Kubík <xkubik34>
-//				Boris Štrbák <xstrba05>
+//				      Tibor Kubík <xkubik34>
+//				      Boris Štrbák <xstrba05>
 // $Date:       $2019-02-27
 //============================================================================//
 /**
