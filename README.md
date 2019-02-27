@@ -1,12 +1,13 @@
-Prostredi
+Environment
 ---------
 
 Ubuntu 18.04.2 LTS
 
-Autori
+
+Authors
 ------
 
-Nazev tymu
+Rebus
 - xjezik03 Andrej Ježík
 - xkubik34 Tibor Kubík
 - xdubec01 Branislav Dubec
