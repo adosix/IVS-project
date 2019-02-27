@@ -39,19 +39,22 @@ ________________________________________________________________________________
  3.1)	Basic arithmetic operations		--- xkubik34 --- [xdubec01]
  3.2)	Factorial, powering			--- xdubec01 --- [xstrba05]
  3.3)	General fraction 			--- xdubec01 --- [xstrba05]
- 3.3)	(1 more function - sine function 	--- xstrba05 --- [xjezik03])
+ 3.4)	Operator precedence			--- xdubec01 --- [xkubik34]
+ 3.5)	Input validation			--- xdubec01 --- [xkubik34]
+ 3.6)	(1 more function - sine function 	--- xstrba05 --- [xjezik03])
 4)	Managing repository 			--- xjezik03 --- [ALL MEMBERS]
 5)	Graphical User Interface (GUI) 		--- xkubik34 --- [xjezik03]
-6)	User Documentation 			--- xkubik34 --- [xstrba05]
-7)	Code Documentation 			--- xdubec01 --- [xjezik03]
-8)	Manual(Help)				--- xstrba05 --- [xkubik34]
-8)	Profilling 				--- xdubec01 --- [xstrba05]
-9)	Mockup 					--- ALL MEMBERS -- [ALL MEMBERS]
-10)	Installer / Uninstaller 		--- xstrba05 --- [xkubik34]
-11)	Installation at customer 		--- ALL MEMBERS --- [-]
-12)	READ_ME.md creation 			--- xjezik03 --- [xdubec01]
-13)	Documentation of debugger usage 	--- xjezik03 --- [-]
-14)	Presentation 				--- xkubik34 --- [ALL MEMBERS]
+6)	Brackets validation & calculation	--- xdubec01 --- [xstrba05]
+7)	User Documentation 			--- xkubik34 --- [xstrba05]
+8)	Code Documentation 			--- xdubec01 --- [xjezik03]
+9)	Manual(Help)				--- xstrba05 --- [xkubik34]
+10)	Profilling 				--- xdubec01 --- [xstrba05]
+11)	Mockup 					--- ALL MEMBERS -- [ALL MEMBERS]
+12)	Installer / Uninstaller 		--- xstrba05 --- [xkubik34]
+13)	Installation at customer 		--- ALL MEMBERS --- [-]
+14)	READ_ME.md creation 			--- xjezik03 --- [xdubec01]
+15)	Documentation of debugger usage 	--- xjezik03 --- [-]
+16)	Presentation 				--- xkubik34 --- [ALL MEMBERS]
 ________________________________________________________________________________________
 
 We have devided tasks among team members during f2f meeting. We tried to divide tasks accoding to difficulty and time
@@ -77,7 +80,7 @@ details of our project.
 ===============================================
 
 Hosting for repositories:
-	We used github. We allowed access for teachers by adding "ivs.kontrola@gmail.com to our private repository
+	We used github. We allowed access for teachers by adding "ivs.kontrola@gmail.com" to our private repository
 
 
 ==============================================
