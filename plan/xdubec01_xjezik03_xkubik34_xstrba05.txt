@@ -66,7 +66,7 @@ aspect of software developement, it means every single task is teamwork.
 
 Communiction:
 	The main way of communication is Discord. It is a application, where people can create rooms for chatting/calling.
-	We made a cannal call IVS - Group project, where we created several rooms,
+	We made a cannal called IVS - Group project, where we created several rooms,
 	each for separate part of developement.
  
 	We were meeting once a week during whole time of project creation. We were using whiteboard for notes,
