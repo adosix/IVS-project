@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void digit_pressed();
+    void on_pushButton_comma_released();
 };
 
 #endif // MAINWINDOW_H
