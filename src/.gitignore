@@ -4,3 +4,4 @@ build/OBJ_DIR/*
 build/Makefile
 build/RebusCalc.pro.user
 *.o
+RebusCalc
