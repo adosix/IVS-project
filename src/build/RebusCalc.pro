@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = RebusCalc2
+TARGET = RebusCalc
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,14 +24,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        calc.cpp \
-        math_lib.cpp \
-    mainwindow.cpp
+        ../calc.cpp \
+        ../math_lib.cpp \
+    ../mainwindow.cpp
 
 HEADERS += \
-        math_lib.h \
-    mainwindow.h
+        ../math_lib.h \
+    ../mainwindow.h
 
 FORMS += \
-    mainwindow.ui \
-    mainwindow.ui
+    ../mainwindow.ui 
+
+QMAKE_CLEAN = moc*
+
+DESTDIR = ..
+OBJECTS_DIR = OBJ_DIR
+MOC_DIR = MOC_DIR
+UI_DIR = UI_DIR
