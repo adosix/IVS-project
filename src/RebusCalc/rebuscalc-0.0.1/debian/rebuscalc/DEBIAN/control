@@ -1,0 +1,11 @@
+Package: rebuscalc
+Version: 0.0.1
+Architecture: amd64
+Maintainer: Boris Strbak <borisstrbak@gmail.com>
+Installed-Size: 51
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libqt5core5a (>= 5.9.0~beta), libqt5gui5 (>= 5.0.2), libqt5widgets5 (>= 5.0.2), libstdc++6 (>= 5)
+Section: Utilities
+Priority: extra
+Homepage: <insert the upstream URL, if relevant>
+Description: RebusCalc
+ Simple Calculator with few more functions.

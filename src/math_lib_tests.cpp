@@ -1,5 +1,4 @@
 #include <limits>
-#include "gtest/gtest.h"
 #include "math_lib.cpp"
 
 //----------------------------------------------
@@ -238,9 +237,4 @@ TEST(sine, negative_numbers)
 TEST(sine, limits)
 {
 
-}
-int main(int argc, char **argv)
-{
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

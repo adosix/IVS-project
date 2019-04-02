@@ -1,3 +1,0 @@
-/media/adosi/01D4E3534C2C0110/MyStuff/education/2. semester/IVS/2.projekt/src/CMakeFiles/rebuild_cache.dir
-/media/adosi/01D4E3534C2C0110/MyStuff/education/2. semester/IVS/2.projekt/src/CMakeFiles/runTests.dir
-/media/adosi/01D4E3534C2C0110/MyStuff/education/2. semester/IVS/2.projekt/src/CMakeFiles/edit_cache.dir
