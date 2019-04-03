@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include<bits/stdc++.h>
+using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
    QMainWindow(parent),
@@ -22,6 +24,27 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
    delete ui;
+}
+
+bool areParanthesisBalanced(QString expr)
+{
+    int nmb = 0;
+
+    for (int i=0; i<expr.length(); i++)
+    {
+        if (expr[i]=='('){
+            nmb++;
+            continue;
+        }
+
+        if (expr[i]==')') {
+            nmb--;
+        }
+    }
+    if(nmb > 0)
+        return true;
+        else
+            return false;
 }
 
 void MainWindow::digit_pressed() {
@@ -56,7 +79,7 @@ void MainWindow::on_pushButton_br_left_released() {
 }
 
 void MainWindow::on_pushButton_br_right_released() {
-    if(ui->temp_text->text().contains("(")){
+    if(areParanthesisBalanced(ui->temp_text->text()) == true){
         ui->temp_text->setText(ui->temp_text->text() + ")");
     }
 }
