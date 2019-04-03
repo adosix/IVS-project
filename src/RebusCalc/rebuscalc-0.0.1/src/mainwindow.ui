@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
+    <width>361</width>
     <height>441</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>50</y>
-      <width>302</width>
+      <width>361</width>
       <height>91</height>
      </rect>
     </property>
@@ -40,6 +40,9 @@ color:white;
     <property name="text">
      <string>0</string>
     </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_C">
     <property name="geometry">
@@ -49,6 +52,9 @@ color:white;
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -75,6 +81,9 @@ QPushButton:pressed {
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -100,6 +109,9 @@ QPushButton:pressed {
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -124,6 +136,9 @@ QPushButton:pressed {
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -156,6 +171,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -186,6 +204,9 @@ color: #07575b;
      <font>
       <pointsize>13</pointsize>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -218,6 +239,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -243,6 +267,9 @@ color: #07575b;
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -275,6 +302,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -305,6 +335,9 @@ color: #07575b;
      <font>
       <pointsize>13</pointsize>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -337,6 +370,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -362,6 +398,9 @@ color: #07575b;
       <width>62</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -394,6 +433,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -424,6 +466,9 @@ color: #07575b;
      <font>
       <pointsize>13</pointsize>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -456,6 +501,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -481,6 +529,9 @@ color: #07575b;
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -513,6 +564,9 @@ color: #07575b;
       <pointsize>13</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -538,6 +592,9 @@ color: #07575b;
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -565,6 +622,9 @@ color: #07575b;
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -587,7 +647,7 @@ color: #07575b;
      <rect>
       <x>60</x>
       <y>0</y>
-      <width>242</width>
+      <width>301</width>
       <height>51</height>
      </rect>
     </property>
@@ -645,6 +705,9 @@ color:white;
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -670,6 +733,9 @@ QPushButton:pressed {
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -689,11 +755,14 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_fact">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>137</y>
+      <x>300</x>
+      <y>259</y>
       <width>61</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
@@ -720,6 +789,9 @@ QPushButton:pressed {
       <height>61</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
    border: 0px solid gray;
@@ -734,6 +806,90 @@ QPushButton:pressed {
     </property>
     <property name="text">
      <string>sin</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_sqrt">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>137</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+} </string>
+    </property>
+    <property name="text">
+     <string>√</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_pow">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>198</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+} </string>
+    </property>
+    <property name="text">
+     <string>^</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_del">
+    <property name="geometry">
+     <rect>
+      <x>61</x>
+      <y>137</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+} </string>
+    </property>
+    <property name="text">
+     <string>DEL</string>
     </property>
    </widget>
   </widget>
