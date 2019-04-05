@@ -220,3 +220,10 @@ void MainWindow::on_pushButton_pow_released() {
     ui->temp_text->setText(ui->temp_text->text() + "^");
 
 }
+
+const char* MainWindow::on_pushButton_equals_released() {
+    QString a = ui->temp_text->text();
+    QByteArray inBytes = a.toUtf8();
+    const char* cStrData = inBytes.constData();
+    return cStrData;
+}

@@ -1,10 +1,12 @@
 #include "float.h"
+#include <string.h>
 
-int isValidInput(char *expression) 
+int isValidInput(const char *expression)
 {
+    return strlen(expression);
 }
 
-double result(char *expression)
+double result(const char *expression)
 {
 }
 
