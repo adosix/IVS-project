@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include<bits/stdc++.h>
+#include "math_lib.cpp"
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -48,6 +50,7 @@ bool areParanthesisBalanced(QString expr)
 }
 
 void MainWindow::digit_pressed() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 28)
         return;
    QPushButton * button = (QPushButton*)sender(); //returns pointer to qObject
@@ -67,12 +70,14 @@ void MainWindow::digit_pressed() {
 }
 
 void MainWindow::on_pushButton_comma_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     ui->temp_text->setText(ui->temp_text->text() + ".");
 }
 
 void MainWindow::on_pushButton_br_left_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
 
@@ -85,6 +90,7 @@ void MainWindow::on_pushButton_br_left_released() {
 }
 
 void MainWindow::on_pushButton_br_right_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(areParanthesisBalanced(ui->temp_text->text()) == true){
@@ -93,16 +99,20 @@ void MainWindow::on_pushButton_br_right_released() {
 }
 
 void MainWindow::on_pushButton_C_released(){
+    lastPressedEquals = false;
     ui->temp_text->setText("0");
+    ui->result->setText("0");
 }
 
 void MainWindow::on_pushButton_fact_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     ui->temp_text->setText(ui->temp_text->text() + "!");
 }
 
 void MainWindow::on_pushButton_mod_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -112,6 +122,7 @@ void MainWindow::on_pushButton_mod_released() {
 }
 
 void MainWindow::on_pushButton_div_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -121,6 +132,7 @@ void MainWindow::on_pushButton_div_released() {
 }
 
 void MainWindow::on_pushButton_mul_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -130,6 +142,7 @@ void MainWindow::on_pushButton_mul_released() {
 }
 
 void MainWindow::on_pushButton_plus_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -139,6 +152,7 @@ void MainWindow::on_pushButton_plus_released() {
 }
 
 void MainWindow::on_pushButton_minus_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -150,6 +164,7 @@ void MainWindow::on_pushButton_minus_released() {
 }
 
 void MainWindow::on_pushButton_sin_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 28)
         return;
     if(ui->temp_text->text() == "0") {
@@ -161,6 +176,7 @@ void MainWindow::on_pushButton_sin_released() {
 }
 
 void MainWindow::on_pushButton_cos_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 28)
         return;
     if(ui->temp_text->text() == "0") {
@@ -172,6 +188,7 @@ void MainWindow::on_pushButton_cos_released() {
 }
 
 void MainWindow::on_pushButton_sqrt_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 27)
         return;
     if(ui->temp_text->text() == "0") {
@@ -183,7 +200,7 @@ void MainWindow::on_pushButton_sqrt_released() {
 }
 
 void MainWindow::on_pushButton_del_released() {
-
+    lastPressedEquals = false;
     QString s = ui->temp_text->text();
     QString modified = s;
     modified.chop(1);
@@ -212,6 +229,7 @@ void MainWindow::on_pushButton_del_released() {
 }
 
 void MainWindow::on_pushButton_pow_released() {
+    lastPressedEquals = false;
     if(ui->temp_text->text().length() > 30)
         return;
     if(ui->temp_text->text() == "0") {
@@ -220,9 +238,29 @@ void MainWindow::on_pushButton_pow_released() {
     ui->temp_text->setText(ui->temp_text->text() + "^");
 
 }
-const char* MainWindow::on_pushButton_equals_released() {
+
+void MainWindow::on_pushButton_equals_released() {
+
     QString a = ui->temp_text->text();
     QByteArray inBytes = a.toUtf8();
     const char* cStrData = inBytes.constData();
-    return cStrData;
+    lastPressedEquals = true;
+    int aca = isValidInput(cStrData);
+    if(aca == 5){
+        ui->result->setText("error");
+    }
+    else{
+        ui->result->setText("valid");
+    }
+}
+
+void MainWindow::on_pushButton_ans_released() {
+    if(ui->result->text() != "error"){
+        if(lastPressedEquals){
+            ui->temp_text->setText(ui->result->text());
+        }
+        else{
+            ui->temp_text->setText(ui->temp_text->text() + ui->result->text());
+        }
+    }
 }

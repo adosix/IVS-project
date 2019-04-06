@@ -14,10 +14,13 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-     const char* on_pushButton_equals_released();
+
+public slots:
+    void on_pushButton_equals_released();
 
 private:
     Ui::MainWindow *ui;
+    bool lastPressedEquals = false;
 
 private slots:
     void digit_pressed();
@@ -36,6 +39,7 @@ private slots:
     void on_pushButton_sqrt_released();
     void on_pushButton_del_released();
     void on_pushButton_pow_released();
+    void on_pushButton_ans_released();
 };
 
 #endif // MAINWINDOW_H
