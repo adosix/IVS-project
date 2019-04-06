@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    const char* on_pushButton_equals_released();
+     const char* on_pushButton_equals_released();
 
 private:
     Ui::MainWindow *ui;
@@ -36,7 +36,6 @@ private slots:
     void on_pushButton_sqrt_released();
     void on_pushButton_del_released();
     void on_pushButton_pow_released();
-
 };
 
 #endif // MAINWINDOW_H
