@@ -246,11 +246,12 @@ void MainWindow::on_pushButton_equals_released() {
     const char* cStrData = inBytes.constData();
     lastPressedEquals = true;
     int aca = isValidInput(cStrData);
-    if(aca == 5){
+    if(aca == -1){
         ui->result->setText("error");
     }
     else{
-        ui->result->setText("valid");
+        QString valueAsString = QString::number(result(cStrData));
+        ui->result->setText(valueAsString);
     }
 }
 
