@@ -40,6 +40,7 @@ private slots:
     void on_pushButton_del_released();
     void on_pushButton_pow_released();
     void on_pushButton_ans_released();
+    void on_checkBox_toggled(bool checked);
 };
 
 #endif // MAINWINDOW_H

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>361</width>
-    <height>441</height>
+    <height>456</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
+      <y>70</y>
       <width>361</width>
       <height>91</height>
      </rect>
@@ -28,14 +28,29 @@
       <pointsize>19</pointsize>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QLabel {
   qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
 background-color: #07575b;
 color:white;
 }
 
-</string>
+QLabel[light_theme=true] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+background-color: white;
+color:#07575b;
+}
+
+QLabel[light_theme=false] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+background-color: #07575b;
+color:white;
+}</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -48,7 +63,7 @@ color:white;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -58,6 +73,18 @@ color:white;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -76,7 +103,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>241</x>
-      <y>319</y>
+      <y>339</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -86,6 +113,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -104,7 +143,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>119</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -114,6 +153,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -132,7 +183,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -145,6 +196,17 @@ QPushButton:pressed {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #E6EEEE;
+	color: #83abad;
 }
 
 QPushButton:pressed {
@@ -161,7 +223,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>-3</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -178,6 +240,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -195,7 +268,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>58</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -212,6 +285,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -229,7 +313,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>119</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -246,6 +330,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -263,7 +358,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -276,6 +371,17 @@ color: #07575b;
    border: 0px solid gray;
 	background-color: #003B46;
 	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #E6EEEE;
+	color: #83abad;
 }
 
 QPushButton:pressed {
@@ -292,7 +398,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>-3</x>
-      <y>259</y>
+      <y>279</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -309,6 +415,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -326,7 +443,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>58</x>
-      <y>259</y>
+      <y>279</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -343,6 +460,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -359,8 +487,8 @@ color: #07575b;
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>118</x>
-      <y>258</y>
+      <x>119</x>
+      <y>278</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -377,6 +505,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -393,9 +532,9 @@ color: #07575b;
    <widget class="QPushButton" name="pushButton_minus">
     <property name="geometry">
      <rect>
-      <x>179</x>
-      <y>258</y>
-      <width>62</width>
+      <x>180</x>
+      <y>278</y>
+      <width>61</width>
       <height>61</height>
      </rect>
     </property>
@@ -407,6 +546,17 @@ color: #07575b;
    border: 0px solid gray;
 	background-color: #003B46;
 	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #E6EEEE;
+	color: #83abad;
 }
 
 QPushButton:pressed {
@@ -423,7 +573,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>-3</x>
-      <y>319</y>
+      <y>339</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -440,6 +590,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -457,7 +618,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>58</x>
-      <y>319</y>
+      <y>339</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -474,6 +635,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -491,7 +663,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>119</x>
-      <y>319</y>
+      <y>339</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -508,6 +680,17 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
+	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
 	color: white;
 }
 
@@ -525,7 +708,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>319</y>
+      <y>339</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -538,6 +721,17 @@ color: #07575b;
    border: 0px solid gray;
 	background-color: #003B46;
 	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #E6EEEE;
+	color: #83abad;
 }
 
 QPushButton:pressed {
@@ -554,7 +748,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>-3</x>
-      <y>380</y>
+      <y>400</y>
       <width>122</width>
       <height>61</height>
      </rect>
@@ -573,6 +767,17 @@ color: #07575b;
 	background-color: #003B46;
 	color: white;
 }
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #83abad;
+	color: white;
+}
 
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
@@ -587,8 +792,8 @@ color: #07575b;
    <widget class="QPushButton" name="pushButton_comma">
     <property name="geometry">
      <rect>
-      <x>119</x>
-      <y>380</y>
+      <x>241</x>
+      <y>400</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -600,13 +805,24 @@ color: #07575b;
      <string notr="true">QPushButton {
    border: 0px solid gray;
 	background-color: #003B46;
-	color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
 }
 
 QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #dadbde, stop: 1 #f6f7fa);
-color: #07575b;
 } </string>
     </property>
     <property name="text">
@@ -616,8 +832,8 @@ color: #07575b;
    <widget class="QPushButton" name="pushButton_equals">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>380</y>
+      <x>119</x>
+      <y>400</y>
       <width>122</width>
       <height>61</height>
      </rect>
@@ -630,6 +846,17 @@ color: #07575b;
    border: 0px solid gray;
 	background-color: #003B46;
 	color: white;
+}
+QPushButton[light_theme=false] {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: white;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: #E6EEEE;
+	color: #83abad;
 }
 
 QPushButton:pressed {
@@ -646,7 +873,7 @@ color: #07575b;
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>0</y>
+      <y>20</y>
       <width>301</width>
       <height>51</height>
      </rect>
@@ -664,7 +891,19 @@ background-color: #07575b;
 color:white;
 }
 
-</string>
+QLabel[light_theme=true] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+background-color: white;
+color:#07575b;
+}
+
+QLabel[light_theme=false] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+background-color: #07575b;
+color:white;
+}</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -674,7 +913,7 @@ color:white;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>20</y>
       <width>61</width>
       <height>51</height>
      </rect>
@@ -690,6 +929,20 @@ color:white;
   border: none;
   background-color: #07575b;
   color: white;
+}
+
+QLabel[light_theme=true] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+  background-color: white;
+  color: #07575b;
+}
+
+QLabel[light_theme=false] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+  background-color: #07575b;
+  color: white;
 }</string>
     </property>
     <property name="text">
@@ -700,7 +953,7 @@ color:white;
     <property name="geometry">
      <rect>
       <x>241</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -710,6 +963,18 @@ color:white;
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -728,7 +993,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>241</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -738,6 +1003,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -756,7 +1033,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>259</y>
+      <y>279</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -766,6 +1043,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -784,7 +1073,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>241</x>
-      <y>259</y>
+      <y>279</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -794,6 +1083,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -812,7 +1113,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -822,6 +1123,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -840,7 +1153,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>198</y>
+      <y>218</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -850,6 +1163,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -868,7 +1193,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>61</x>
-      <y>137</y>
+      <y>157</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -878,6 +1203,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -896,7 +1233,7 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>300</x>
-      <y>320</y>
+      <y>340</y>
       <width>61</width>
       <height>121</height>
      </rect>
@@ -906,6 +1243,18 @@ QPushButton:pressed {
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton {
+   border: 0px solid gray;
+	background-color: #003B46;
+	color: #07575b;
+}
+
+QPushButton[light_theme=true] {
+   border: 0px solid gray;
+	background-color: white;
+	color: #07575b;
+}
+
+QPushButton[light_theme=false] {
    border: 0px solid gray;
 	background-color: #003B46;
 	color: #07575b;
@@ -922,6 +1271,94 @@ N
 S</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>341</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>NEW! Try switching between light/dark theme</string>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>361</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+background-color: #07575b;
+color:white;
+}
+
+QLabel[light_theme=true] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+background-color: white;
+color:#07575b;
+}
+
+QLabel[light_theme=false] {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: none;
+background-color: #07575b;
+color:white;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>temp_text</zorder>
+   <zorder>pushButton_C</zorder>
+   <zorder>pushButton_cos</zorder>
+   <zorder>pushButton_mod</zorder>
+   <zorder>pushButton_div</zorder>
+   <zorder>pushButton_7</zorder>
+   <zorder>pushButton_8</zorder>
+   <zorder>pushButton_9</zorder>
+   <zorder>pushButton_mul</zorder>
+   <zorder>pushButton_4</zorder>
+   <zorder>pushButton_5</zorder>
+   <zorder>pushButton_6</zorder>
+   <zorder>pushButton_minus</zorder>
+   <zorder>pushButton_1</zorder>
+   <zorder>pushButton_2</zorder>
+   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_plus</zorder>
+   <zorder>pushButton_0</zorder>
+   <zorder>pushButton_comma</zorder>
+   <zorder>pushButton_equals</zorder>
+   <zorder>result</zorder>
+   <zorder>eq</zorder>
+   <zorder>pushButton_br_left</zorder>
+   <zorder>pushButton_br_right</zorder>
+   <zorder>pushButton_fact</zorder>
+   <zorder>pushButton_sin</zorder>
+   <zorder>pushButton_sqrt</zorder>
+   <zorder>pushButton_pow</zorder>
+   <zorder>pushButton_del</zorder>
+   <zorder>pushButton_ans</zorder>
+   <zorder>checkBox</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
