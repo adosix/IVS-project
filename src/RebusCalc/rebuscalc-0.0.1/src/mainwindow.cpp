@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include<bits/stdc++.h>
 #include "math_lib.cpp"
+#include <limits.h>
+#include <float.h>
 
 using namespace std;
 
@@ -250,6 +252,9 @@ void MainWindow::on_pushButton_equals_released() {
         ui->result->setText("error");
     }
     else{
+        if(result(cStrData) == MAXFLOAT){
+            ui->result->setText("error");
+        }
         QString valueAsString = QString::number(result(cStrData));
         ui->result->setText(valueAsString);
     }
