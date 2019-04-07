@@ -59,12 +59,25 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                     if(j<= start){j=start;}
                     else{j++; count=1;}
                     if(decimalNumber==1){
-                          string substr=parseExpression.substr(j,i);
-                          num1=std::stod(substr);
+                        decimalNumber=0;
+                          if(j+1 == i){
+                             string substr=parseExpression.substr(j+1,1);
+                             num1=std::stod(substr);
+                          }
+                          else{
+                            string substr=parseExpression.substr(j+1,i);
+                            num1=std::stod(substr);
+                          }
                     }
                     else{
-                        string substr=parseExpression.substr(j,i);
-                        num1=std::stoi(substr);
+                        if(j+1 == i){
+                           string substr=parseExpression.substr(j+1,1);
+                            num1=std::stoi(substr);
+                        }
+                        else{
+                          string substr=parseExpression.substr(j+1,i);
+                           num1=std::stoi(substr);
+                        }
                     }
 
                     if(parseExpression[i] == '!'){
@@ -96,12 +109,26 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                         }
 
                         if(decimalNumber==1){
-                              string substr=parseExpression.substr(i+1,k-1);
-                              num2=std::stod(substr);
+                            decimalNumber=0;
+                              if(i+1==k-1){
+                              string substr=parseExpression.substr(i+1,1);
+                                 num2=std::stod(substr);
+                              }
+                              else{
+                                string substr=parseExpression.substr(i+1,k-1);
+                                   num2=std::stod(substr);
+                              }
                         }
                         else{
-                            string substr=parseExpression.substr(i+1,k-1);
-                            num2=std::stoi(substr);
+                            if(i+1==k-1){
+                            string substr=parseExpression.substr(i+1,1);
+                             num2=std::stoi(substr);
+
+                            }
+                            else{
+                              string substr=parseExpression.substr(i+1,k-1);
+                                num2=std::stoi(substr);
+                            }
                         }
                         if(count==1 || j==0){
                             j--; count=0;
@@ -138,12 +165,25 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                     if(j<= start){j=start;}
                     else{j++; count=1;}
                     if(decimalNumber==1){
-                          string substr=parseExpression.substr(j,i);
-                          num1=std::stod(substr);
+                        decimalNumber=0;
+                          if(j+1 == i){
+                             string substr=parseExpression.substr(j+1,1);
+                             num1=std::stod(substr);
+                          }
+                          else{
+                            string substr=parseExpression.substr(j+1,i);
+                            num1=std::stod(substr);
+                          }
                     }
                     else{
-                        string substr=parseExpression.substr(j,i);
-                        num1=std::stoi(substr);
+                        if(j+1 == i){
+                           string substr=parseExpression.substr(j+1,1);
+                           num1=std::stoi(substr);
+                        }
+                        else{
+                          string substr=parseExpression.substr(j+1,i);
+                          num1=std::stoi(substr);
+                        }
                     }
                         decimalNumber=0;
                         int k = i+1;
@@ -164,12 +204,30 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                         }
 
                         if(decimalNumber==1){
-                              string substr=parseExpression.substr(i+1,k-1);
+                            decimalNumber=0;
+                              if(i+1==k-1){
+                              string substr=parseExpression.substr(i+1,1);
                               num2=std::stod(substr);
+
+                              }
+                              else{
+                                string substr=parseExpression.substr(i+1,k-1);
+                                num2=std::stod(substr);
+
+                              }
                         }
                         else{
-                            string substr=parseExpression.substr(i+1,k-1);
+
+                            if(i+1==k-1){
+                            string substr=parseExpression.substr(i+1,1);
                             num2=std::stoi(substr);
+
+                            }
+                            else{
+                              string substr=parseExpression.substr(i+1,k-1);
+                              num2=std::stoi(substr);
+
+                            }
                         }
                         if(count==1 || j==0){
                             j--; count=0;
@@ -233,12 +291,29 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                        if(j<= start){j=start;}
                        else{j++; count=1;}
                        if(decimalNumber==1){
-                             string substr=parseExpression.substr(j+1,i-1);
-                             num1=std::stod(substr);
+                           decimalNumber=0;
+                            // string substr=parseExpression.substr(j+1,i-1);
+                             if(j+1 == i){
+                                string substr=parseExpression.substr(j+1,1);
+                                num1=std::stod(substr);
+                             }
+                             else{
+                               string substr=parseExpression.substr(j+1,i);
+                               num1=std::stod(substr);
+                             }
+
                        }
                        else{
-                           string substr=parseExpression.substr(j+1,i-1);
-                           num1=std::stoi(substr);
+                           //string substr=parseExpression.substr(j+1,i-1);
+                           if(j+1 == i){
+                              string substr=parseExpression.substr(j+1,1);
+                              num1=std::stoi(substr);
+                           }
+                           else{
+                             string substr=parseExpression.substr(j+1,i);
+                             num1=std::stoi(substr);
+                           }
+
                        }
                            decimalNumber=0;
                            int k = i+1;
@@ -259,12 +334,27 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                            }
 
                            if(decimalNumber==1){
-                                 string substr=parseExpression.substr(i+1,k-1);
+                               decimalNumber=0;
+
+                                 if(i+1==k-1){
+                                 string substr=parseExpression.substr(i+1,1);
                                  num2=std::stod(substr);
+                                 }
+                                 else{
+                                   string substr=parseExpression.substr(i+1,k-1);
+                                   num2=std::stod(substr);
+                                 }
                            }
                            else{
-                               string substr=parseExpression.substr(i+1,k-1);
-                               num2=std::stoi(substr);
+
+                               if(i+1==k-1){
+                               string substr=parseExpression.substr(i+1,1);
+                               num2=std::stod(substr);
+                               }
+                               else{
+                                 string substr=parseExpression.substr(i+1,k-1);
+                                 num2=std::stod(substr);
+                               }
                            }
                            if(count==1 || j==start){
                                j--; count=0;
@@ -309,7 +399,7 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
 int CharisOperand(const char *expression, int position){
 
     if(expression[position]=='*' ||expression[position]=='/' ||expression[position]=='%' ||expression[position]=='+' ||
-            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='q' ||expression[position]=='s' ){
+            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||expression[position]=='s' ){
         return 0;
     }
     return -1;
@@ -597,12 +687,28 @@ int isValidInput(const char *expression)
                          if(j<= 0){j=0;}
                          else{j++; count=1;}
                          if(decimalNumber==1){
+                             decimalNumber=0;
+                             decimalNumber=0;
+                             if(j == i){
+                                string substr=parseResult.substr(j,1);
+                                num1=std::stod(substr);
+                             }
+                             else{
                                string substr=parseResult.substr(j,i);
                                num1=std::stod(substr);
+                             }
+
                          }
                          else{
-                             string substr=parseResult.substr(j,i);
-                             num1=std::stoi(substr);
+                             if(j == i){
+                                string substr=parseResult.substr(j,1);
+                                 num1=std::stoi(substr);
+                             }
+                             else{
+                               string substr=parseResult.substr(j,i);
+                                num1=std::stoi(substr);
+                             }
+
                          }
 
                          if(parseResult[i] == '!'){
@@ -634,12 +740,28 @@ int isValidInput(const char *expression)
                              }
 
                              if(decimalNumber==1){
+                                 decimalNumber=0;
+                                 if(i+1==k-1){
+                                 string substr=parseResult.substr(i+1,1);
+                                    num2=std::stod(substr);
+                                 }
+                                 else{
                                    string substr=parseResult.substr(i+1,k-1);
-                                   num2=std::stod(substr);
+                                      num2=std::stod(substr);
+                                 }
+
                              }
                              else{
-                                 string substr=parseResult.substr(i+1,k-1);
-                                 num2=std::stoi(substr);
+                                 if(i+1==k-1){
+                                 string substr=parseResult.substr(i+1,1);
+                                  num2=std::stoi(substr);
+
+                                 }
+                                 else{
+                                   string substr=parseResult.substr(i+1,k-1);
+                                     num2=std::stoi(substr);
+                                 }
+
                              }
                              if(count==1 || j==0){
                                  j--; count=0;
@@ -678,12 +800,27 @@ int isValidInput(const char *expression)
                   if(j <= 0){j=0;}
                   else{j++; count=1;}
                   if(decimalNumber==1){
+                      decimalNumber=0;
+                      if(j == i){
+                         string substr=parseResult.substr(j,1);
+                         num1=std::stod(substr);
+                      }
+                      else{
                         string substr=parseResult.substr(j,i);
                         num1=std::stod(substr);
+                      }
+
                   }
                   else{
-                      string substr=parseResult.substr(j,i);
-                      num1=std::stoi(substr);
+                      if(j == i){
+                         string substr=parseResult.substr(j,1);
+                         num1=std::stoi(substr);
+                      }
+                      else{
+                        string substr=parseResult.substr(j,i);
+                        num1=std::stoi(substr);
+                      }
+
                   }
                   decimalNumber=0;
                   int k = i+1;
@@ -703,12 +840,30 @@ int isValidInput(const char *expression)
                       }
                   }
                   if(decimalNumber==1){
+                      decimalNumber=0;
+                      if(i+1==k-1){
+                      string substr=parseResult.substr(i+1,1);
+                      num2=std::stod(substr);
+
+                      }
+                      else{
                         string substr=parseResult.substr(i+1,k-1);
                         num2=std::stod(substr);
+
+                      }
+
                   }
                   else{
-                      string substr=parseResult.substr(i+1,k-1);
+                      if(i+1==k-1){
+                      string substr=parseResult.substr(i+1,1);
                       num2=std::stoi(substr);
+
+                      }
+                      else{
+                        string substr=parseResult.substr(i+1,k-1);
+                         num2=std::stoi(substr);
+                      }
+
                   }
                   if(count==1 || j==0){j--; count=0;}
                   if(parseResult[i]=='*'){
@@ -769,12 +924,27 @@ int isValidInput(const char *expression)
                   if(j <= 0){j=0;}
                   else{j++; count=1;}
                   if(decimalNumber==1){
-                        string substr=parseResult.substr(j,i-1);
+                      decimalNumber=0;
+                      if(j == i){
+                         string substr=parseResult.substr(j,1);
+                         num1=std::stod(substr);
+                      }
+                      else{
+                        string substr=parseResult.substr(j,i);
                         num1=std::stod(substr);
+                      }
+
                      }
                   else{
-                      string substr=parseResult.substr(j,i-1);
-                      num1=std::stoi(substr);
+                      if(j == i){
+                         string substr=parseResult.substr(j,1);
+                         num1=std::stod(substr);
+                      }
+                      else{
+                        string substr=parseResult.substr(j,i);
+                        num1=std::stod(substr);
+                      }
+
                   }
                   decimalNumber=0;
                   int k = i+1;
@@ -794,12 +964,26 @@ int isValidInput(const char *expression)
                       }
                   }
                   if(decimalNumber==1){
+                      decimalNumber=0;
+                      if(i+1==k-1){
+                      string substr=parseResult.substr(i+1,1);
+                      num2=std::stod(substr);
+                      }
+                      else{
                         string substr=parseResult.substr(i+1,k-1);
                         num2=std::stod(substr);
+                      }
                   }
                   else{
-                      string substr=parseResult.substr(i+1,k-1);
-                      num2=std::stoi(substr);
+                      if(i+1==k-1){
+                      string substr=parseResult.substr(i+1,1);
+                        num2=std::stoi(substr);
+                      }
+                      else{
+                        string substr=parseResult.substr(i+1,k-1);
+                        num2=std::stoi(substr);
+                      }
+
                   }
                   if(count==1 || j==0){j--;count=0;}
                   if(parseResult[i]=='+'){
@@ -875,12 +1059,25 @@ int isValidInput(const char *expression)
                         }
                     }
                     if(decimalNumber==1){
+                        decimalNumber=0;
+                        if(i+3==j-1){
+                            string substr=parseResult.substr(i+3,1);
+                            num1=std::stod(substr);
+                        }
+                         else{
                           string substr=parseResult.substr(i+3,j-1);
                           num1=std::stod(substr);
+                        }
                     }
                     else{
-                        string substr=parseResult.substr(i+3,j-1);
-                        num1=std::stoi(substr);
+                        if(i+3==j-1){
+                            string substr=parseResult.substr(i+3,1);
+                            num1=std::stoi(substr);
+                        }
+                         else{
+                          string substr=parseResult.substr(i+3,j-1);
+                          num1=std::stoi(substr);
+                        }
                     }
                      num1=sine(num1);
                      string substr=std::to_string(num1);
@@ -906,12 +1103,28 @@ int isValidInput(const char *expression)
                     }
                 }
                 if(decimalNumber==1){
+                    decimalNumber=0;
+                    if(i+4==j-1){
+                        string substr=parseResult.substr(i+4,1);
+                        num1=std::stod(substr);
+                    }
+                     else{
                       string substr=parseResult.substr(i+4,j-1);
                       num1=std::stod(substr);
+                    }
                 }
                 else{
-                    string substr=parseResult.substr(i+4,j-1);
-                    num1=std::stoi(substr);
+                    if(i+4==j-1){
+                        string substr=parseResult.substr(i+4,1);
+                        num1=std::stoi(substr);
+                    }
+                     else{
+                      string substr=parseResult.substr(i+4,j-1);
+                      num1=std::stoi(substr);
+                    }
+                }
+                if(num1<0){
+                    return MAXFLOAT;
                 }
                  num1=m_sqrt(num1);
                  string substr=std::to_string(num1);
@@ -938,12 +1151,25 @@ int isValidInput(const char *expression)
                     }
                 }
                 if(decimalNumber==1){
+                    decimalNumber=0;
+                    if(i+3==j-1){
+                        string substr=parseResult.substr(i+3,1);
+                        num1=std::stod(substr);
+                    }
+                     else{
                       string substr=parseResult.substr(i+3,j-1);
                       num1=std::stod(substr);
+                    }
                 }
                 else{
-                    string substr=parseResult.substr(i+3,j-1);
-                    num1=std::stoi(substr);
+                    if(i+3==j-1){
+                        string substr=parseResult.substr(i+3,1);
+                        num1=std::stoi(substr);
+                    }
+                     else{
+                      string substr=parseResult.substr(i+3,j-1);
+                      num1=std::stoi(substr);
+                    }
                 }
                  num1=cosine(num1);
                  string substr=std::to_string(num1);
@@ -979,12 +1205,25 @@ int isValidInput(const char *expression)
                      if(j<= 0){j=0;}
                      else{j++; count=1;}
                      if(decimalNumber==1){
-                           string substr=parseResult.substr(j,i);
-                           num1=std::stod(substr);
+                         decimalNumber=0;
+                           if(j == i){
+                                string substr=parseResult.substr(j,1);
+                               num1=std::stod(substr);
+                            }
+                            else{
+                              string substr=parseResult.substr(j,i);
+                              num1=std::stod(substr);
+                            }
                      }
                      else{
-                         string substr=parseResult.substr(j,i);
-                         num1=std::stoi(substr);
+                         if(j == i){
+                              string substr=parseResult.substr(j,1);
+                             num1=std::stoi(substr);
+                          }
+                          else{
+                            string substr=parseResult.substr(j,i);
+                            num1=std::stoi(substr);
+                          }
                      }
 
                      if(parseResult[i] == '!'){
@@ -1016,12 +1255,27 @@ int isValidInput(const char *expression)
                          }
 
                          if(decimalNumber==1){
-                               string substr=parseResult.substr(i+1,k-1);
-                               num2=std::stod(substr);
+                             decimalNumber=0;
+
+                               if(i+1==k-1){
+                               string substr=parseResult.substr(i+1,1);
+                                  num2=std::stod(substr);
+                               }
+                               else{
+                                 string substr=parseResult.substr(i+1,k-1);
+                                    num2=std::stod(substr);
+                               }
                          }
                          else{
-                             string substr=parseResult.substr(i+1,k-1);
-                             num2=std::stoi(substr);
+
+                             if(i+1==k-1){
+                             string substr=parseResult.substr(i+1,1);
+                                num2=std::stoi(substr);
+                             }
+                             else{
+                               string substr=parseResult.substr(i+1,k-1);
+                                  num2=std::stoi(substr);
+                             }
                          }
                          if(count==1 || j==0){
                              j--; count=0;
@@ -1060,12 +1314,25 @@ int isValidInput(const char *expression)
               if(j <= 0){j=0;}
               else{j++; count=1;}
               if(decimalNumber==1){
-                    string substr=parseResult.substr(j,i);
-                    num1=std::stod(substr);
+                  decimalNumber=0;
+                    if(j == i){
+                       string substr=parseResult.substr(j,1);
+                       num1=std::stod(substr);
+                    }
+                    else{
+                      string substr=parseResult.substr(j,i);
+                      num1=std::stod(substr);
+                    }
               }
               else{
-                  string substr=parseResult.substr(j,i);
-                  num1=std::stoi(substr);
+                  if(j == i){
+                     string substr=parseResult.substr(j,1);
+                     num1=std::stoi(substr);
+                  }
+                  else{
+                    string substr=parseResult.substr(j,i);
+                    num1=std::stoi(substr);
+                  }
               }
               decimalNumber=0;
               int k = i+1;
@@ -1085,12 +1352,29 @@ int isValidInput(const char *expression)
                   }
               }
               if(decimalNumber==1){
-                    string substr=parseResult.substr(i+1,k-1);
+                  decimalNumber=0;
+                    if(i+1==k-1){
+                    string substr=parseResult.substr(i+1,1);
                     num2=std::stod(substr);
+
+                    }
+                    else{
+                      string substr=parseResult.substr(i+1,k-1);
+                      num2=std::stod(substr);
+
+                    }
               }
               else{
-                  string substr=parseResult.substr(i+1,k-1);
+                  if(i+1==k-1){
+                  string substr=parseResult.substr(i+1,1);
                   num2=std::stoi(substr);
+
+                  }
+                  else{
+                    string substr=parseResult.substr(i+1,k-1);
+                    num2=std::stoi(substr);
+
+                  }
               }
               if(count==1 || j==0){j--; count=0;}
               if(parseResult[i]=='*'){
@@ -1128,7 +1412,7 @@ int isValidInput(const char *expression)
          for(int i=0;i<parseResult.length();i++){
              if(parseResult[i]=='+' || parseResult[i]=='-' ){
                  int j=i-1;
-                 if(min_atStart==1 && i == 0){
+                 if(i == 0){
                      if(numofOperands <= 0){
                          return std::stod(parseResult);
                      }
@@ -1151,6 +1435,7 @@ int isValidInput(const char *expression)
               if(j <= 0){j=0;}
               else{j++; count=1;}
               if(decimalNumber==1){
+                  decimalNumber=0;
                     string substr=parseResult.substr(j,i-1);
                     num1=std::stod(substr);
                  }
@@ -1176,6 +1461,7 @@ int isValidInput(const char *expression)
                   }
               }
               if(decimalNumber==1){
+                  decimalNumber=0;
                     string substr=parseResult.substr(i+1,k-1);
                     num2=std::stod(substr);
               }
