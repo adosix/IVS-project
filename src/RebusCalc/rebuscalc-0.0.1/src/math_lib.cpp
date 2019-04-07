@@ -1535,9 +1535,9 @@ double m_sqrt(double base)
     return sqrt(base);
 }
 double cosine(double base){
-    return cos(base);
+    return cos(base*M_PI/180);
 }
 double sine(double base)
 {
-    return sin(base);
+    return sin(base*M_PI/180);
 }

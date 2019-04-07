@@ -1,6 +1,6 @@
 Source: rebuscalc
-Section: Utilities
-Priority: extra
+Section: utilities
+Priority: optional
 Maintainer: Boris Strbak <borisstrbak@gmail.com>
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.1.2
@@ -12,4 +12,4 @@ Package: rebuscalc
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: RebusCalc
- Simple Calculator with few more functions.
+ Simple Calculator yet not working properly.
