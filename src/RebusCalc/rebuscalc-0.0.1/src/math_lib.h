@@ -19,6 +19,7 @@
  */
 #ifndef MATH_LIB_H_
 #define MATH_LIB_H_
+char* BracketEvalvuation(char* expression, int start, int end);
 double mod(double divident, double divisor);
 int CharisOperand(const char *expression, int position);
 int CharAfterlBracket(const char *expression, int position);
@@ -157,5 +158,5 @@ double m_sqrt(double base);
    * @return     ????????????????????
 */
 double sine(double base);
-
+double cosine(double base);
 #endif
