@@ -255,8 +255,10 @@ void MainWindow::on_pushButton_equals_released() {
         if(result(cStrData) == MAXFLOAT){
             ui->result->setText("error");
         }
+       else{
         QString valueAsString = QString::number(result(cStrData));
         ui->result->setText(valueAsString);
+       }
     }
 }
 
