@@ -19,6 +19,15 @@
  */
 #ifndef MATH_LIB_H_
 #define MATH_LIB_H_
+double GetNum2(string getNum, int IndexofOperator, int* indexofNum2);
+double GetNum1(string getNum, int IndexofOperator, int* numofOperands,
+               int* indexofNum1, int start);
+void SolveOperands(string & Result, int start);
+void SolveMultPrecedence(string & Result, int start,  int *numOfOperands);
+void SolvePowFact(string & Result, int start, int *numOfOperands);
+void GetNumOfOperands(const char* expression,int* minAtStart,int* numOfLBracket, int* numOfSin, int* numOfCos, int* numOfSqrt,
+                      int* numOfFact, int* numOfMult, int* numOfOperands );
+void GetValueFromSinCosSqrt(const char* value, int start);
 char* BracketEvalvuation(char* expression, int start, int end);
 double mod(double divident, double divisor);
 int CharisOperand(const char *expression, int position);
@@ -158,15 +167,5 @@ double m_sqrt(double base);
    * @return     ????????????????????
 */
 double sine(double base);
-
-
-/**
-   * @brief      ????
-   *
-   * @param      ???    ?????????????
-   * @param      ???    ?????????????
-   *
-   * @return     ????????????????????
-*/
 double cosine(double base);
 #endif

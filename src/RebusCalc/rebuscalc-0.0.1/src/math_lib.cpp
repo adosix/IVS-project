@@ -6,6 +6,282 @@
 #include "math_lib.h"
 #include "cmath"
 using namespace std;
+double GetNum2(string getNum, int IndexofOperator, int* indexofNum2){
+    int decimalNumber=0;
+     (*indexofNum2)=IndexofOperator+1;
+    for(;  (unsigned ) (*indexofNum2)< getNum.length();  (*indexofNum2)++){
+        if(isdigit(getNum[  (*indexofNum2)])){
+            continue;
+        }
+        else if(getNum[  (*indexofNum2)]=='.'){
+            decimalNumber=1;
+            continue;
+        }
+        else if((unsigned)(*indexofNum2)  == getNum.length()-1){
+            break;
+        }
+        else{
+            break;
+        }
+    }
+
+
+    if(decimalNumber==1){
+        decimalNumber=0;
+        if( IndexofOperator+1==(*indexofNum2) -1){
+        string substr=getNum.substr(IndexofOperator+1,1);
+          return std::stod(substr);
+        }
+        else{
+          string substr=getNum.substr(IndexofOperator+1,(*indexofNum2) -1);
+             return std::stod(substr);
+        }
+
+    }
+    else{
+        if(IndexofOperator+1==(*indexofNum2) -1){
+        string substr=getNum.substr(IndexofOperator+1,1);
+         return std::stoi(substr);
+
+        }
+        else{
+          string substr=getNum.substr(IndexofOperator+1,(*indexofNum2) -1);
+            return  std::stoi(substr);
+        }
+
+    }// num2=number after '^'
+
+    return DBL_MAX;
+
+   }// End of function GetNum2
+double GetNum1(string getNum, int IndexofOperator, int* numofOperands,
+               int* indexofNum1, int start){
+    int decimalNumber=0;
+    double neg = 1;
+     (*indexofNum1)=IndexofOperator-1;
+    for(;   (*indexofNum1)>=start;  (*indexofNum1)--){
+        if(isdigit(getNum[  (*indexofNum1)])){
+            continue;
+        }
+        else if(getNum[  (*indexofNum1)]=='.'){
+            decimalNumber=1;
+            continue;
+        }
+        else if(getNum[  (*indexofNum1)] == '-' &&   (*indexofNum1)==0){
+            numofOperands--;
+            neg = -1;
+            break;
+        }
+        else{
+            break;
+        }
+    }
+ if(  (*indexofNum1)<= start){(*indexofNum1)=start;}
+ else
+ {
+       (*indexofNum1)++;
+ }
+ if(neg==-1){
+     (*indexofNum1)++;
+ }
+ if(decimalNumber==1){
+     decimalNumber=0;
+     if(  (*indexofNum1) ==IndexofOperator){
+        string substr=getNum.substr(  (*indexofNum1),1);
+        double tmp = std::stod(substr);
+         return neg*tmp;
+     }
+     else{
+       string substr=getNum.substr(  (*indexofNum1),IndexofOperator);
+       double tmp = std::stod(substr);
+        return neg*tmp;
+
+ }
+ }
+ else{
+     if((*indexofNum1) == IndexofOperator){
+        string substr=getNum.substr(  (*indexofNum1),1);
+        int tmp = std::stoi(substr);
+         return neg*tmp;
+     }
+     else{
+       string substr=getNum.substr(  (*indexofNum1),IndexofOperator);
+       int tmp = std::stoi(substr);
+        return neg*tmp;
+     }
+
+ } // num1=number before '!' or '^'
+ return DBL_MAX;
+} // End of function GetNum1
+void SolveOperands(string & Result, int start){
+    double num1;
+    double num2;
+    int IndexofNum1;
+    int IndexofNum2;
+    int count = 0;
+    for(unsigned int IndexOfOperator=0;IndexOfOperator<Result.length();IndexOfOperator++){
+        if(Result[IndexOfOperator]=='+' || Result[IndexOfOperator]=='-'  ){
+            if(IndexOfOperator==0){
+                count = 2;
+                        continue;
+            }
+            num1=(GetNum1(Result,IndexOfOperator, 0, &IndexofNum1, start));
+            num2=GetNum2( Result,  IndexOfOperator, &IndexofNum2);
+            if(IndexofNum1<0) IndexofNum1=0;
+
+            if(count==2 || num1<0){IndexofNum1--;
+                count =1 ;
+            }
+
+         if(Result[IndexOfOperator]=='+'){
+             num1=addition(num1,num2);
+             string substr=std::to_string(num1);
+             Result.replace(IndexofNum1, (IndexofNum2-IndexofNum1+count )-1,substr);
+
+             IndexOfOperator=IndexofNum1+substr.length() -1;
+             if(count == 1){count == 0;}
+             continue;
+         }
+         if(Result[IndexOfOperator]=='-'){
+
+             num1=difference(num1,num2);
+             string substr=std::to_string(num1);
+
+             Result.replace(IndexofNum1, (IndexofNum2-IndexofNum1+ count)-1,substr);
+             IndexOfOperator=IndexofNum1+substr.length() - 1;
+             if(count == 1){count == 0;}
+             continue;
+         }
+
+        }//end of if loop when we have found position of +,-
+    }//end of for loop that searches position of +,-
+}
+void SolveMultPrecedence(string & Result, int start,  int *numOfOperands){
+    double num1;
+    double num2;
+int IndexofNum1;
+int IndexofNum2;
+    for(unsigned int IndexOfOperator=0;IndexOfOperator<Result.length();IndexOfOperator++){
+        if(Result[IndexOfOperator]=='*' || Result[IndexOfOperator]=='/' || Result[IndexOfOperator]=='%' ){
+
+            num1=(GetNum1(Result,IndexOfOperator, numOfOperands, &IndexofNum1, start));
+            num2=GetNum2( Result,  IndexOfOperator, &IndexofNum2);
+            if(IndexofNum1<0) IndexofNum1=0;
+         if(Result[IndexOfOperator]=='*'){
+             num1=multiplication(num1,num2);
+             string substr=std::to_string(num1);
+             Result.replace(IndexofNum1, (IndexofNum2-IndexofNum1)-1,substr);
+             IndexOfOperator=IndexofNum1+substr.length() -1;
+             continue;
+         }
+         if(Result[IndexOfOperator]=='/'){
+             if(num2==0){
+                 Result="MAXFLOAT";
+             }
+             num1=division(num1,num2);
+             string substr=std::to_string(num1);
+
+             Result.replace(IndexofNum1, (IndexofNum2-IndexofNum1)-1,substr);
+             IndexOfOperator=IndexofNum1+substr.length() - 1;
+             continue;
+         }
+         if(Result[IndexOfOperator]=='%'){
+             if(num2==0){
+                 Result="MAXFLOAT";
+             }
+             num1=mod(num1,num2);
+             string substr=std::to_string(num1);
+             Result.replace(IndexofNum1, (IndexofNum2-IndexofNum1)-1,substr);
+             IndexOfOperator=IndexofNum1+substr.length() - 1;
+             continue;
+         }
+        }//end of if loop when we have found position of *,/,%
+    }//end of for loop that searches position of *,/,%
+
+}
+void SolvePowFact(string & Result, int start, int *numOfOperands){
+    double num1=0;
+    double num2=0;
+
+    int indexOfNum1;
+    int indexOfNum2;
+
+    int count=0; // ancillary variable
+    for(unsigned int IndexOfOperator = start; IndexOfOperator < Result.length(); IndexOfOperator++){
+        if(Result[IndexOfOperator]=='^' || Result[IndexOfOperator]=='!'){
+            num1=(GetNum1(Result,IndexOfOperator, numOfOperands, &indexOfNum1, start));
+            if(Result[IndexOfOperator] == '!'){
+                 if(fmod(num1,1.0) != 0 || num1<=0){
+                       Result="DBL_MAX";
+                       return;
+                   }
+                   num1=factorial(num1);
+                   string substr=std::to_string(num1);
+                   Result.replace(indexOfNum1, (IndexOfOperator-indexOfNum1)+1,substr);
+                  IndexOfOperator = indexOfNum1 + substr.length()-1;
+               } // End of if, where operand is '!'
+               else{
+                num2=GetNum2( Result,  IndexOfOperator, &indexOfNum2);
+                   if(indexOfNum1==0)
+                   {
+                       indexOfNum1--;
+                   } // when I have increased value of 'indexOfNum1',
+                  num1= powering(num1,num2);
+                  string substr=std::to_string(num1);
+                  Result.replace(indexOfNum1, (indexOfNum2 -indexOfNum1)-1,substr);
+                  IndexOfOperator=indexOfNum1+substr.length()-1;
+               } // end of else, that matches '^'
+        }//end of if statement, that matches  '!' or '^' in for loop
+
+    } // end of foor loop, that search for '!' or '^'
+}//end of function SolvePowFact
+void GetNumOfOperands(const char* expression,int* minAtStart,int* numOfLBracket, int* numOfSin, int* numOfCos, int* numOfSqrt,
+                      int* numOfFact, int* numOfMult, int* numOfOperands ){
+    for(unsigned int i = 0; i < strlen(expression); i++)
+    {
+                   if(expression[i]=='(')
+                   {
+                       (*numOfLBracket)++;
+                   }
+                   if(expression[i]=='^' || expression[i]=='!'){
+                       (*numOfFact)++;
+                   }
+                   if(expression[i]=='*' || expression[i]=='/' || expression[i]=='%' ){
+                       (*numOfMult)++;
+                   }
+                   if(expression[i]=='+' || expression[i]=='-'){
+                       (*numOfOperands)++;
+                       if(i==0) (*minAtStart)=1;
+                   }
+                   if(expression[i]=='c'){
+                       i += 3;
+                       (*numOfLBracket)++;
+                       (*numOfCos)++;
+                   }
+                   if(expression[i]=='s'){
+                       if(expression[i+1] == 'i'){
+                           i+=3;
+                           (*numOfSin)++;
+                       }
+                       else{
+                           i+=4;
+                           (*numOfSqrt)++;
+                       }
+                       (*numOfLBracket)++;
+                   }
+
+             }
+}// End of function GetNumOfOpearnds
+
+
+void GetValueFromSinCosSqrt(const char* value, int start)
+{
+
+    if(value[start] == 'n'){
+        for(unsigned int i = start; i<strlen(value); i++){
+    }
+    }
+}
 void BracketEvalvuation(const char* expression, int start, int end, const char* value){
     int count=0;
      int min_atStart=0;
@@ -34,6 +310,7 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
             if(i==0) {min_atStart=1;
             }
           }
+
         } // End of for loop to count operands
      while(numofFact>0){
          for(int i = start; i<strlen(expression); i++){
@@ -135,7 +412,7 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
                         }
                        num1= powering(num1,num2);
                        string substr=std::to_string(num1);
-                       parseExpression.replace(j+2, (k-j)-2,substr);
+                       parseExpression.replace(j+1, (k-j)-2,substr);
                        i=j+substr.length()-1;
                     } // end of else, that matches '^'
              }//end of if statement, that matches  '!' or '^' in for loop
@@ -389,6 +666,7 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
      if(count==1){
          parseExpression=parseExpression.erase(end,1);
         strcpy((char*)value,parseExpression.c_str());
+        GetValueFromSinCosSqrt(value, start);
         return;
 
      }
@@ -399,7 +677,7 @@ void BracketEvalvuation(const char* expression, int start, int end, const char* 
 int CharisOperand(const char *expression, int position){
 
     if(expression[position]=='*' ||expression[position]=='/' ||expression[position]=='%' ||expression[position]=='+' ||
-            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||expression[position]=='s' ){
+            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||expression[position]=='s' ||expression[position]=='('||expression[position]=='!' ){
         return 0;
     }
     return -1;
@@ -449,11 +727,11 @@ int BracketValidation(const char *expression){
     }
 
   }
-  if(Bracket>1){
+  if(Bracket>0){
     return -1;
   }
   return 0;
-}
+} // End of function  BracketValidation
 
 int isValidInput(const char *expression)
 {
@@ -493,7 +771,6 @@ int isValidInput(const char *expression)
                 number++;
                 continue;
             }
-         // throw std::runtime_error("error");
               return -1;
         }
 
@@ -524,14 +801,14 @@ int isValidInput(const char *expression)
     }// End of condition when minus is first
 
 
-    //When it is last character
+    //For the last char
     if(i == (signed) (strlen(expression)-1)){
         if(isdigit(expression[i]) || expression[i] == ')' || expression[i]=='!'){
             return 0;
         }
-        // throw std::runtime_error("error");
         return -1;
-    }
+    } // Last char in expression
+
     switch (expression[i]) {
     case '*':
     case '/':
@@ -541,7 +818,6 @@ int isValidInput(const char *expression)
     case '^':
     {
         if(number < 0 || CharAfterOperand(expression,i+1)==-1){
-            // throw std::runtime_error("error");
             return -1;
         }
         number--;
@@ -550,7 +826,6 @@ int isValidInput(const char *expression)
     }
     case '(':
       if(CharAfterlBracket(expression,i+1)==-1 || CharisOperand(expression,i-1)==-1){
-          // throw std::runtime_error("error");
           return -1;
       }
       continue;
@@ -576,7 +851,6 @@ int isValidInput(const char *expression)
         }
     case '!':
         if(number < 0 ){
-            // throw std::runtime_error("error");
             return -1;
         }
         dot=0;
@@ -584,7 +858,6 @@ int isValidInput(const char *expression)
         continue;
      case '.':
         if(number<0 || !isdigit(expression[i+1]) || dot == 1){
-            // throw std::runtime_error("error");
             return -1;
         }
         dot=1;
@@ -594,7 +867,6 @@ int isValidInput(const char *expression)
             continue;
         }
         else{
-            // throw std::runtime_error("error");
             return -1;
         }
      default:
@@ -602,413 +874,39 @@ int isValidInput(const char *expression)
             number=1;
             continue;
         }
-     // throw std::runtime_error("error");
           return -1;
     } //end of switch statement
 
-  }//end of for loop
+  }//end of for loop, where we check all char's in expression
 
   return 0;
 
-}
+} // End of function isValitInput
 
  double result(const char *expression)
 {
-     double result=MAXFLOAT;
      int count=0;
-     string parseResult=(string) expression;
+
+     string parseResult=(string) expression; // our expression, easier work with string
+
      int min_atStart=0;
      int numofLbracket=0;
      int numofSin=0;
      int numofCos=0;
      int numofStrq=0;
      int numofFact=0; //also for pow
-     int numofMultPrecedence=0;
-     int numofOperands=0;
+     int numofMultPrecedence=0; // *,/,%
+     int numofOperands=0;  //+,-
+
+
      double num1=0;
      double num2=0;
-     int neg=1;
      int decimalNumber=0;
-     for(unsigned int i = 0; i < strlen(expression); i++){
-           if(expression[i]=='(')
-           {
-               numofLbracket++;
-           }
-           if(expression[i]=='^' || expression[i]=='!'){
-               numofFact++;
-           }
-           if(expression[i]=='*' || expression[i]=='/' || expression[i]=='%' ){
-               numofMultPrecedence++;
-           }
-           if(expression[i]=='+' || expression[i]=='-'){
-               numofOperands++;
-               if(i==0) min_atStart=1;
-           }
-           if(expression[i]=='c'){
-               i += 3;
-               numofLbracket++;
-               numofCos++;
-           }
-           if(expression[i]=='s'){
-               if(expression[i+1] == 'i'){
-                   i+=3;
-                   numofSin++;
-               }
-               else{
-                   i+=4;
-                   numofStrq++;
-               }
-               numofLbracket++;
-           }
 
-     } // End of for loop to count brackets, operands etc.
-     if(numofLbracket==0){
-         if(numofFact>0){
-             numofFact--;
-              for(unsigned int i = 0; i < parseResult.length(); i++){
-                  if(parseResult[i]=='^' || parseResult[i]=='!'){
-                            int j=i-1;
-                            for(; j>=0;j--){
-                                if(isdigit(parseResult[j])){
-                                    continue;
-                                }
-                                else if(parseResult[j]=='.'){
-                                    decimalNumber=1;
-                                    continue;
-                                }
-                                else if(parseResult[j] == '-' && j==0){
-                                    numofOperands--;
-                                    break;
-                                }
-                                else{
-                                    break;
-                                }
-                            }
-                         if(j<= 0){j=0;}
-                         else{j++; count=1;}
-                         if(decimalNumber==1){
-                             decimalNumber=0;
-                             decimalNumber=0;
-                             if(j == i){
-                                string substr=parseResult.substr(j,1);
-                                num1=std::stod(substr);
-                             }
-                             else{
-                               string substr=parseResult.substr(j,i);
-                               num1=std::stod(substr);
-                             }
+     GetNumOfOperands(expression, &min_atStart, &numofLbracket, &numofSin,
+                      &numofCos, &numofStrq, &numofFact, &numofMultPrecedence, &numofOperands);
 
-                         }
-                         else{
-                             if(j == i){
-                                string substr=parseResult.substr(j,1);
-                                 num1=std::stoi(substr);
-                             }
-                             else{
-                               string substr=parseResult.substr(j,i);
-                                num1=std::stoi(substr);
-                             }
-
-                         }
-
-                         if(parseResult[i] == '!'){
-                             if(fmod(num1,1.0) != 0 || num1<=0){
-                                 return MAXFLOAT;
-                             }
-                             num1=factorial(num1);
-                             string substr=std::to_string(num1);
-                             parseResult.replace(j, (i-j)+1,substr);
-                             i = j + substr.length()-1;
-                         }
-                         else{
-                             decimalNumber=0;
-                             int k = i+1;
-                             for(; k<parseResult.length();k++){
-                                 if(isdigit(parseResult[k])){
-                                     continue;
-                                 }
-                                 else if(parseResult[k]=='.'){
-                                     decimalNumber=1;
-                                     continue;
-                                 }
-                                 else if(k == parseResult.length()-1){
-                                     break;
-                                 }
-                                 else{
-                                     break;
-                                 }
-                             }
-
-                             if(decimalNumber==1){
-                                 decimalNumber=0;
-                                 if(i+1==k-1){
-                                 string substr=parseResult.substr(i+1,1);
-                                    num2=std::stod(substr);
-                                 }
-                                 else{
-                                   string substr=parseResult.substr(i+1,k-1);
-                                      num2=std::stod(substr);
-                                 }
-
-                             }
-                             else{
-                                 if(i+1==k-1){
-                                 string substr=parseResult.substr(i+1,1);
-                                  num2=std::stoi(substr);
-
-                                 }
-                                 else{
-                                   string substr=parseResult.substr(i+1,k-1);
-                                     num2=std::stoi(substr);
-                                 }
-
-                             }
-                             if(count==1 || j==0){
-                                 j--; count=0;
-                             }
-                            num1= powering(num1,num2);
-                            string substr=std::to_string(num1);
-                            parseResult.replace(j+1, (k-j)-1,substr);
-                            i=j+substr.length()-1;
-                         } // end of else, that matches '^'
-                  }//end of if statement, that matches  '!' or '^' in for loop
-
-              } // end of foor loop, that search for '!' or '^'
-         }//end of if, that matches '!' or '^'
-         if(numofMultPrecedence > 0){
-             numofMultPrecedence--;
-             for(int i=0;i<parseResult.length();i++){
-                 if(parseResult[i]=='*' || parseResult[i]=='/' || parseResult[i]=='%' ){
-                     int j=i-1;
-                     for(; j>=0;j--){
-                         if(isdigit(parseResult[j])){
-                             continue;
-                         }
-                         else if(parseResult[j]=='.'){
-                             decimalNumber=1;
-                             continue;
-                         }
-                         else if(parseResult[j] == '-' && j==0){
-                             numofOperands--;
-                             continue;
-                         }
-                         else{
-                             break;
-                         }
-                     }
-
-                  if(j <= 0){j=0;}
-                  else{j++; count=1;}
-                  if(decimalNumber==1){
-                      decimalNumber=0;
-                      if(j == i){
-                         string substr=parseResult.substr(j,1);
-                         num1=std::stod(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(j,i);
-                        num1=std::stod(substr);
-                      }
-
-                  }
-                  else{
-                      if(j == i){
-                         string substr=parseResult.substr(j,1);
-                         num1=std::stoi(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(j,i);
-                        num1=std::stoi(substr);
-                      }
-
-                  }
-                  decimalNumber=0;
-                  int k = i+1;
-                  for(; k<parseResult.length();k++){
-                      if(isdigit(parseResult[k])){
-                          continue;
-                      }
-                      else if(parseResult[k]=='.'){
-                          decimalNumber=1;
-                          continue;
-                      }
-                      else if(k == parseResult.length()-1){
-                          break;
-                      }
-                      else{
-                          break;
-                      }
-                  }
-                  if(decimalNumber==1){
-                      decimalNumber=0;
-                      if(i+1==k-1){
-                      string substr=parseResult.substr(i+1,1);
-                      num2=std::stod(substr);
-
-                      }
-                      else{
-                        string substr=parseResult.substr(i+1,k-1);
-                        num2=std::stod(substr);
-
-                      }
-
-                  }
-                  else{
-                      if(i+1==k-1){
-                      string substr=parseResult.substr(i+1,1);
-                      num2=std::stoi(substr);
-
-                      }
-                      else{
-                        string substr=parseResult.substr(i+1,k-1);
-                         num2=std::stoi(substr);
-                      }
-
-                  }
-                  if(count==1 || j==0){j--; count=0;}
-                  if(parseResult[i]=='*'){
-                      num1=multiplication(num1,num2);
-                      string substr=std::to_string(num1);
-                      parseResult.replace(j+1, (k-j)-1,substr);
-                      i=j+substr.length() -1;
-                      continue;
-                  }
-                  if(parseResult[i]=='/'){
-                      if(num2==0){
-                          return MAXFLOAT;
-                      }
-                      num1=division(num1,num2);
-                      string substr=std::to_string(num1);
-                      parseResult.replace(j+1, (k-j)-1,substr);
-                      i=j+substr.length() - 1;
-                      continue;
-                  }
-                  if(parseResult[i]=='%'){
-                      if(num2==0){
-                          return MAXFLOAT;
-                      }
-                      num1=mod(num1,num2);
-                      string substr=std::to_string(num1);
-                      parseResult.replace(j+1, (k-j)-1,substr);
-                      i=j+substr.length() - 1;
-                      continue;
-                  }
-                 }//end of if loop when we have found position of *,/,%
-             }//end of for loop that searches position of *,/,%
-         }//end of if that matches *,/,%
-         if(numofOperands>0){
-             numofOperands--;
-             for(int i=0;i<parseResult.length();i++){
-                 if(parseResult[i]=='+' || parseResult[i]=='-' ){
-                     int j=i-1;
-                     if(min_atStart==1 && i == 0){
-                         if(numofOperands <= 0){
-                             return std::stod(parseResult);
-                         }
-                        neg=-1;
-                        continue;
-                     }
-                     for(; j>=0;j--){
-                         if(isdigit(parseResult[j])){
-                             continue;
-                         }
-                         else if(parseResult[j]=='.'){
-                             decimalNumber=1;
-                             continue;
-                         }
-
-                         else{
-                             break;
-                         }
-                     }
-                  if(j <= 0){j=0;}
-                  else{j++; count=1;}
-                  if(decimalNumber==1){
-                      decimalNumber=0;
-                      if(j == i){
-                         string substr=parseResult.substr(j,1);
-                         num1=std::stod(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(j,i);
-                        num1=std::stod(substr);
-                      }
-
-                     }
-                  else{
-                      if(j == i){
-                         string substr=parseResult.substr(j,1);
-                         num1=std::stod(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(j,i);
-                        num1=std::stod(substr);
-                      }
-
-                  }
-                  decimalNumber=0;
-                  int k = i+1;
-                  for(; k<parseResult.length();k++){
-                      if(isdigit(parseResult[k])){
-                          continue;
-                      }
-                      else if(parseResult[k]=='.'){
-                          decimalNumber=1;
-                          continue;
-                      }
-                      else if(k == parseResult.length()-1){
-                          break;
-                      }
-                      else{
-                          break;
-                      }
-                  }
-                  if(decimalNumber==1){
-                      decimalNumber=0;
-                      if(i+1==k-1){
-                      string substr=parseResult.substr(i+1,1);
-                      num2=std::stod(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(i+1,k-1);
-                        num2=std::stod(substr);
-                      }
-                  }
-                  else{
-                      if(i+1==k-1){
-                      string substr=parseResult.substr(i+1,1);
-                        num2=std::stoi(substr);
-                      }
-                      else{
-                        string substr=parseResult.substr(i+1,k-1);
-                        num2=std::stoi(substr);
-                      }
-
-                  }
-                  if(count==1 || j==0){j--;count=0;}
-                  if(parseResult[i]=='+'){
-                      num1=addition(num1,num2);
-                      string substr=std::to_string(num1);
-                      parseResult.replace(j+1, (k-j)-1,substr);
-                      i=j+substr.length() -1;
-                      continue;
-                  }
-                  if(parseResult[i]=='-'){
-                      num1=difference(num1,num2);
-                      string substr=std::to_string(num1);
-                      parseResult.replace(j+1, (k-j)-1,substr);
-                      i=j+substr.length() - 1;
-                      continue;
-                  }
-
-                 }//end of if loop when we have found position of *,/,%
-             }//end of for loop that searches position of *,/,%
-         }//end of if that matches *,/,%
-
-
-         } // End of if statement, when in expression are not bracktets
-
-     else{
+     if(numofLbracket!=0){
          int  bracket [numofLbracket];
          count=0;
         for(unsigned int i = 0; i < parseResult.length(); i++){
@@ -1022,8 +920,7 @@ int isValidInput(const char *expression)
                 count--;
                 int lBracketpos=j;
                 int rBracketpos=i;
-                const char* tmp;
-
+                 char tmp[50];
                 BracketEvalvuation(parseResult.c_str(), lBracketpos, rBracketpos,tmp);
                 if(tmp=="WRONG"){
                     return MAXFLOAT;
@@ -1033,10 +930,10 @@ int isValidInput(const char *expression)
              continue;
         }
 
-     } // end of else, brackets in expression
-     int counter=numofCos+numofSin+numofStrq;
+     } // end of condition to remove brackets
+     int numofTrigonoFunctions=numofCos+numofSin+numofStrq;
 
-     if(counter > 0){
+     if(numofTrigonoFunctions > 0){
 
         for(int i = 0; i < parseResult.length(); i++){
             if(parseResult[i] == 's' ){
@@ -1128,7 +1025,7 @@ int isValidInput(const char *expression)
                 }
                  num1=m_sqrt(num1);
                  string substr=std::to_string(num1);
-                 parseResult.replace(i, (j-i)-1,substr);
+                 parseResult.replace(i, (j-i)-2,substr);
                  i=j+substr.length()-1;
                 continue;
             }
@@ -1181,314 +1078,25 @@ int isValidInput(const char *expression)
          }
 
        } //end of sin,strq,cos
-     if(numofFact>0){
-         numofFact--;
-          for(unsigned int i = 0; i < parseResult.length(); i++){
-              if(parseResult[i]=='^' || parseResult[i]=='!'){
-                        int j=i-1;
-                        for(; j>=0;j--){
-                            if(isdigit(parseResult[j])){
-                                continue;
-                            }
-                            else if(parseResult[j]=='.'){
-                                decimalNumber=1;
-                                continue;
-                            }
-                            else if(parseResult[j] == '-' && j==0){
-                                numofOperands--;
-                                break;
-                            }
-                            else{
-                                break;
-                            }
-                        }
-                     if(j<= 0){j=0;}
-                     else{j++; count=1;}
-                     if(decimalNumber==1){
-                         decimalNumber=0;
-                           if(j == i){
-                                string substr=parseResult.substr(j,1);
-                               num1=std::stod(substr);
-                            }
-                            else{
-                              string substr=parseResult.substr(j,i);
-                              num1=std::stod(substr);
-                            }
-                     }
-                     else{
-                         if(j == i){
-                              string substr=parseResult.substr(j,1);
-                             num1=std::stoi(substr);
-                          }
-                          else{
-                            string substr=parseResult.substr(j,i);
-                            num1=std::stoi(substr);
-                          }
-                     }
 
-                     if(parseResult[i] == '!'){
-                         if(fmod(num1,1.0) != 0 || num1<=0){
-                             return MAXFLOAT;
-                         }
-                         num1=factorial(num1);
-                         string substr=std::to_string(num1);
-                         parseResult.replace(j, (i-j)+1,substr);
-                         i = j + substr.length()-1;
-                     }
-                     else{
-                         decimalNumber=0;
-                         int k = i+1;
-                         for(; k<parseResult.length();k++){
-                             if(isdigit(parseResult[k])){
-                                 continue;
-                             }
-                             else if(parseResult[k]=='.'){
-                                 decimalNumber=1;
-                                 continue;
-                             }
-                             else if(k == parseResult.length()-1){
-                                 break;
-                             }
-                             else{
-                                 break;
-                             }
-                         }
+         if(numofFact>0){
+             SolvePowFact(parseResult, 0, &numofOperands);
+             //zmenim parseResult
+             if(parseResult == "DBL_MAX"){
+                return DBL_MAX;
+             }
+         }//end of if, that matches '!' or '^'
 
-                         if(decimalNumber==1){
-                             decimalNumber=0;
-
-                               if(i+1==k-1){
-                               string substr=parseResult.substr(i+1,1);
-                                  num2=std::stod(substr);
-                               }
-                               else{
-                                 string substr=parseResult.substr(i+1,k-1);
-                                    num2=std::stod(substr);
-                               }
-                         }
-                         else{
-
-                             if(i+1==k-1){
-                             string substr=parseResult.substr(i+1,1);
-                                num2=std::stoi(substr);
-                             }
-                             else{
-                               string substr=parseResult.substr(i+1,k-1);
-                                  num2=std::stoi(substr);
-                             }
-                         }
-                         if(count==1 || j==0){
-                             j--; count=0;
-                         }
-                        num1= powering(num1,num2);
-                        string substr=std::to_string(num1);
-                        parseResult.replace(j+1, (k-j)-1,substr);
-                        i=j+substr.length()-1;
-                     } // end of else, that matches '^'
-              }//end of if statement, that matches  '!' or '^' in for loop
-
-          } // end of foor loop, that search for '!' or '^'
-     }//end of if, that matches '!' or '^'
-     if(numofMultPrecedence > 0){
-         numofMultPrecedence--;
-         for(int i=0;i<parseResult.length();i++){
-             if(parseResult[i]=='*' || parseResult[i]=='/' || parseResult[i]=='%' ){
-                 int j=i-1;
-                 for(; j>=0;j--){
-                     if(isdigit(parseResult[j])){
-                         continue;
-                     }
-                     else if(parseResult[j]=='.'){
-                         decimalNumber=1;
-                         continue;
-                     }
-                     else if(parseResult[j] == '-' && j==0){
-                         numofOperands--;
-                         continue;
-                     }
-                     else{
-                         break;
-                     }
-                 }
-
-              if(j <= 0){j=0;}
-              else{j++; count=1;}
-              if(decimalNumber==1){
-                  decimalNumber=0;
-                    if(j == i){
-                       string substr=parseResult.substr(j,1);
-                       num1=std::stod(substr);
-                    }
-                    else{
-                      string substr=parseResult.substr(j,i);
-                      num1=std::stod(substr);
-                    }
-              }
-              else{
-                  if(j == i){
-                     string substr=parseResult.substr(j,1);
-                     num1=std::stoi(substr);
-                  }
-                  else{
-                    string substr=parseResult.substr(j,i);
-                    num1=std::stoi(substr);
-                  }
-              }
-              decimalNumber=0;
-              int k = i+1;
-              for(; k<parseResult.length();k++){
-                  if(isdigit(parseResult[k])){
-                      continue;
-                  }
-                  else if(parseResult[k]=='.'){
-                      decimalNumber=1;
-                      continue;
-                  }
-                  else if(k == parseResult.length()-1){
-                      break;
-                  }
-                  else{
-                      break;
-                  }
-              }
-              if(decimalNumber==1){
-                  decimalNumber=0;
-                    if(i+1==k-1){
-                    string substr=parseResult.substr(i+1,1);
-                    num2=std::stod(substr);
-
-                    }
-                    else{
-                      string substr=parseResult.substr(i+1,k-1);
-                      num2=std::stod(substr);
-
-                    }
-              }
-              else{
-                  if(i+1==k-1){
-                  string substr=parseResult.substr(i+1,1);
-                  num2=std::stoi(substr);
-
-                  }
-                  else{
-                    string substr=parseResult.substr(i+1,k-1);
-                    num2=std::stoi(substr);
-
-                  }
-              }
-              if(count==1 || j==0){j--; count=0;}
-              if(parseResult[i]=='*'){
-                  num1=multiplication(num1,num2);
-                  string substr=std::to_string(num1);
-                  parseResult.replace(j+1, (k-j)-1,substr);
-                  i=j+substr.length() -1;
-                  continue;
-              }
-              if(parseResult[i]=='/'){
-                  if(num2==0){
-                      return MAXFLOAT;
-                  }
-                  num1=division(num1,num2);
-                  string substr=std::to_string(num1);
-                  parseResult.replace(j+1, (k-j)-1,substr);
-                  i=j+substr.length() - 1;
-                  continue;
-              }
-              if(parseResult[i]=='%'){
-                  if(num2==0){
-                      return MAXFLOAT;
-                  }
-                  num1=mod(num1,num2);
-                  string substr=std::to_string(num1);
-                  parseResult.replace(j+1, (k-j)-1,substr);
-                  i=j+substr.length() - 1;
-                  continue;
-              }
-             }//end of if loop when we have found position of *,/,%
-         }//end of for loop that searches position of *,/,%
-     }//end of if that matches *,/,%
-     if(numofOperands>0){
-         numofOperands--;
-         for(int i=0;i<parseResult.length();i++){
-             if(parseResult[i]=='+' || parseResult[i]=='-' ){
-                 int j=i-1;
-                 if(i == 0){
-                     if(numofOperands <= 0){
-                         return std::stod(parseResult);
-                     }
-                    neg=-1;
-                    continue;
-                 }
-                 for(; j>=0;j--){
-                     if(isdigit(parseResult[j])){
-                         continue;
-                     }
-                     else if(parseResult[j]=='.'){
-                         decimalNumber=1;
-                         continue;
-                     }
-
-                     else{
-                         break;
-                     }
-                 }
-              if(j <= 0){j=0;}
-              else{j++; count=1;}
-              if(decimalNumber==1){
-                  decimalNumber=0;
-                    string substr=parseResult.substr(j,i-1);
-                    num1=std::stod(substr);
-                 }
-              else{
-                  string substr=parseResult.substr(j,i-1);
-                  num1=std::stoi(substr);
-              }
-              decimalNumber=0;
-              int k = i+1;
-              for(; k<parseResult.length();k++){
-                  if(isdigit(parseResult[k])){
-                      continue;
-                  }
-                  else if(parseResult[k]=='.'){
-                      decimalNumber=1;
-                      continue;
-                  }
-                  else if(k == parseResult.length()-1){
-                      break;
-                  }
-                  else{
-                      break;
-                  }
-              }
-              if(decimalNumber==1){
-                  decimalNumber=0;
-                    string substr=parseResult.substr(i+1,k-1);
-                    num2=std::stod(substr);
-              }
-              else{
-                  string substr=parseResult.substr(i+1,k-1);
-                  num2=std::stoi(substr);
-              }
-              if(count==1 || j==0){j--;count=0;}
-              if(parseResult[i]=='+'){
-                  num1=addition(num1,num2);
-                  string substr=std::to_string(num1);
-                  parseResult.replace(j+1, (k-j)-1,substr);
-                  i=j+substr.length() -1;
-                  continue;
-              }
-              if(parseResult[i]=='-'){
-                  num1=difference(num1,num2);
-                  string substr=std::to_string(num1);
-                  parseResult.replace(j+1, (k-j)-1,substr);
-                  i=j+substr.length() - 1;
-                  continue;
-              }
-
-             }//end of if loop when we have found position of *,/,%
-         }//end of for loop that searches position of *,/,%
-     }//end of if that matches *,/,%
-
+         if(numofMultPrecedence > 0){
+             SolveMultPrecedence(parseResult, 0, &numofOperands );
+             //vysledok v parseResult
+             if(parseResult == "DBL_MAX"){
+                return DBL_MAX;
+             }
+         }
+         if(numofOperands>0){
+            SolveOperands(parseResult, 0);
+          }
 
      return std::stod(parseResult);
 }
