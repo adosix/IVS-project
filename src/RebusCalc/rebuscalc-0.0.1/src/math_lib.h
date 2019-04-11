@@ -17,8 +17,10 @@
  *
  * @brief ???????????????
  */
+#include <string>
 #ifndef MATH_LIB_H_
 #define MATH_LIB_H_
+using namespace std;
 double GetNum2(string getNum, int IndexofOperator, int* indexofNum2);
 double GetNum1(string getNum, int IndexofOperator, int* numofOperands,
                int* indexofNum1, int start);
