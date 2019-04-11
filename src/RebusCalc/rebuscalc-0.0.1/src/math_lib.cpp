@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <string.h>
 #include <ctype.h>
 #include "math_lib.h"
 #include "cmath"
@@ -362,11 +363,11 @@ void BracketEvalvuation(string & evalBracket, int start, int end){
         SolveOperands(tmp, 0);
       }
 
-     evalBracket.replace(start, tmp.length(), tmp);
+     evalBracket.replace(start, end-start+1, tmp);
      for(int i = start; i < evalBracket.length(); i++){
          if(evalBracket[i] == ')')
          {
-            evalBracket.erase(i,2);
+            evalBracket.erase(i,1);
              break;
          }
      }
