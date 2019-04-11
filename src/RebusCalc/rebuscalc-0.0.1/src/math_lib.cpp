@@ -362,7 +362,8 @@ void BracketEvalvuation(string & evalBracket, int start, int end){
      if(numofOperands>0){
         SolveOperands(tmp, 0);
       }
-
+    if(numofCos >0|| numofSin > 0) start=start-3;
+     if(numofStrq>0)start=start-4;
      evalBracket.replace(start, end-start+1, tmp);
      for(int i = start; i < evalBracket.length(); i++){
          if(evalBracket[i] == ')')
