@@ -126,6 +126,14 @@ void SolveOperands(string & Result, int start){
                 count = 2;
                         continue;
             }
+            if(Result[IndexOfOperator]=='+' &&Result[IndexOfOperator+1]=='-' ){
+                Result[IndexOfOperator]=='-';
+               Result.erase(IndexOfOperator+1,1);
+            }
+            if(Result[IndexOfOperator]=='-' &&Result[IndexOfOperator+1]=='-' ){
+                Result[IndexOfOperator]=='+';
+                Result.erase(IndexOfOperator+1,1);
+            }
             num1=(GetNum1(Result,IndexOfOperator, 0, &IndexofNum1, start));
             num2=GetNum2( Result,  IndexOfOperator, &IndexofNum2);
             if(IndexofNum1<0) IndexofNum1=0;
@@ -209,6 +217,7 @@ void SolvePowFact(string & Result, int start, int *numOfOperands){
     for(unsigned int IndexOfOperator = start; IndexOfOperator < Result.length(); IndexOfOperator++){
         if(Result[IndexOfOperator]=='^' || Result[IndexOfOperator]=='!'){
             num1=(GetNum1(Result,IndexOfOperator, numOfOperands, &indexOfNum1, start));
+            if(indexOfNum1<0) indexOfNum1=0;
             if(Result[IndexOfOperator] == '!'){
                  if(fmod(num1,1.0) != 0 || num1<=0){
                        Result="DBL_MAX";
@@ -221,13 +230,9 @@ void SolvePowFact(string & Result, int start, int *numOfOperands){
                } // End of if, where operand is '!'
                else{
                 num2=GetNum2( Result,  IndexOfOperator, &indexOfNum2);
-                   if(indexOfNum1==0)
-                   {
-                       indexOfNum1--;
-                   } // when I have increased value of 'indexOfNum1',
                   num1= powering(num1,num2);
                   string substr=std::to_string(num1);
-                  Result.replace(indexOfNum1, (indexOfNum2 -indexOfNum1)-1,substr);
+                  Result.replace(indexOfNum1, (indexOfNum2 -indexOfNum1),substr);
                   IndexOfOperator=indexOfNum1+substr.length()-1;
                } // end of else, that matches '^'
         }//end of if statement, that matches  '!' or '^' in for loop
@@ -380,7 +385,9 @@ void BracketEvalvuation(string & evalBracket, int start, int end){
 int CharisOperand(const char *expression, int position){
 
     if(expression[position]=='*' ||expression[position]=='/' ||expression[position]=='%' ||expression[position]=='+' ||
-            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||expression[position]=='s' ||expression[position]=='('||expression[position]=='!' ){
+            expression[position]=='-' ||expression[position]=='n' ||
+            expression[position]=='t' ||expression[position]=='s' ||
+            expression[position]=='('||expression[position]=='!' ||expression[position]==')'){
         return 0;
     }
     return -1;
@@ -668,12 +675,12 @@ int isValidInput(const char *expression)
 
 double addition(double addend1, double addend2)
 {
-    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<-DBL_MAX || addend2<-DBL_MAX){
+    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<=-(DBL_MAX) || addend2<=-(DBL_MAX)){
         return DBL_MAX;
 
     }
     double result = addend1+addend2;
-    if(result>= DBL_MAX || result< -DBL_MAX){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
