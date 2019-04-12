@@ -31,14 +31,11 @@ TEST(addition, negative_result)
 TEST(addition, limits)
 {
   double maxminus = DBL_MAX -1.0;
-  double minplus  = DBL_MIN + 1.0;
 
   EXPECT_DOUBLE_EQ(DBL_MAX,addition(DBL_MAX,10.0));
   EXPECT_DOUBLE_EQ(DBL_MAX,addition(-DBL_MAX,-100.0));
-  EXPECT_DOUBLE_EQ(DBL_MAX,addition(DBL_MIN,-10.0));
 
   EXPECT_DOUBLE_EQ(DBL_MAX, addition(maxminus,10.0));
-  EXPECT_DOUBLE_EQ(DBL_MIN, addition(minplus,-10.0));
 }
 
 //----------------------------------------------
@@ -69,14 +66,11 @@ TEST(difference, negative_result)
 TEST(difference, limits)
 {
   double maxminus = DBL_MAX -1.0;
-  double minplus  = DBL_MIN + 1.0;
 
   EXPECT_DOUBLE_EQ(DBL_MAX,difference(DBL_MAX,-2.0));
   EXPECT_DOUBLE_EQ(DBL_MAX,difference(-DBL_MAX,10.0));
-  EXPECT_DOUBLE_EQ(DBL_MAX,difference(DBL_MIN,10.0));
 
   EXPECT_DOUBLE_EQ(DBL_MAX, difference(maxminus,-1.0));
-  EXPECT_DOUBLE_EQ(DBL_MIN, difference(minplus,1.0));
 }
 
 //----------------------------------------------
@@ -108,15 +102,12 @@ TEST(multiplication, negative_result)
 TEST(multiplication, limits)
 {
   double maxhalf = DBL_MAX /2.0;
-  double minhalf  = DBL_MIN /2.0;
 
   EXPECT_DOUBLE_EQ(DBL_MAX,multiplication(DBL_MAX,1.000001));
   EXPECT_DOUBLE_EQ(DBL_MAX,multiplication(DBL_MAX,1.0));
   EXPECT_DOUBLE_EQ(DBL_MAX,multiplication(-DBL_MAX,1.002));
-  EXPECT_DOUBLE_EQ(DBL_MAX,multiplication(DBL_MIN,1.0001));
 
   EXPECT_DOUBLE_EQ(DBL_MAX, multiplication(maxhalf,2.0));
-  EXPECT_DOUBLE_EQ(DBL_MIN, multiplication(minhalf,2.0));
 }
 
 //----------------------------------------------
@@ -148,14 +139,11 @@ TEST(division, negative_result)
 TEST(division, limits)
 {
   double maxhalf = DBL_MAX /2.0;
-  double minhalf  = DBL_MIN /2.0;
 
   EXPECT_DOUBLE_EQ(DBL_MAX,division(DBL_MAX,0.99));
   EXPECT_DOUBLE_EQ(DBL_MAX,division(-DBL_MAX,0.99));
-  EXPECT_DOUBLE_EQ(DBL_MAX,division(DBL_MIN,0.99));
 
   EXPECT_DOUBLE_EQ(DBL_MAX, division(maxhalf,0.5));
-  EXPECT_DOUBLE_EQ(DBL_MIN, division(minhalf,0.5));
 
 }
 
@@ -223,12 +211,37 @@ TEST(sine, positive_numbers)
 //test function "sine" for operations with positive numbers
 TEST(sine, negative_numbers)
 {
-    EXPECT_DOUBLE_EQ(-0.015707317311820342,sine(-360.9));
+    EXPECT_DOUBLE_EQ(-0.015707317311820276,sine(-360.9));
     EXPECT_DOUBLE_EQ(-0.60042022532588402,sine(-36.9));
     EXPECT_DOUBLE_EQ(-0.5028690945602079,sine(-30.19));
     EXPECT_DOUBLE_EQ(0.98328669868730434,sine(-1360.49));
     EXPECT_DOUBLE_EQ(0.86854502735789818,sine(-960.29));
     EXPECT_DOUBLE_EQ(0.0,sine(-360));
+}
+
+//----------------------------------------------
+//----------------------------------------------
+
+//test function "cosine" for operations with positive numbers
+TEST(cosine, positive_numbers)
+{
+  EXPECT_DOUBLE_EQ(0.70710678118654757,cosine(45));
+  EXPECT_DOUBLE_EQ(-0.8660254037844386,cosine(930));
+  EXPECT_DOUBLE_EQ(0.80281747519111457,cosine(36.6));
+  EXPECT_DOUBLE_EQ(0.99987663248166059,cosine(0.9));
+}
+
+//----------------------------------------------
+//----------------------------------------------
+
+//test function "cosine" for operations with positive numbers
+TEST(cosine, negative_numbers)
+{
+    EXPECT_DOUBLE_EQ(1.0,cosine(-360.0));
+    EXPECT_DOUBLE_EQ(0.79968465848709058,cosine(-36.9));
+    EXPECT_DOUBLE_EQ(0.86436258233232,cosine(-30.19));
+    EXPECT_DOUBLE_EQ(0.18206391236217909,cosine(-1360.49));
+    EXPECT_DOUBLE_EQ(-0.49561026568450678,cosine(-960.29));
 }
 
 //----------------------------------------------
@@ -317,6 +330,9 @@ TEST(result, result)
     EXPECT_DOUBLE_EQ(8155.18886278,result("10000+(4.3438439-123*345)/23"));
     EXPECT_DOUBLE_EQ(-1839.8911561,result("0.765+4.3438439-(123*345/23)"));
     EXPECT_DOUBLE_EQ(14,result("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
+    //jedno z tychto hadze stoi exception
+    EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3"));
+    EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3*fact(1)"));
 }
 
 
