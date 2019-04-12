@@ -668,29 +668,73 @@ int isValidInput(const char *expression)
 
 double addition(double addend1, double addend2)
 {
-    return addend1+addend2;
+    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<DBL_MIN || addend2<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = addend1+addend2;
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
+    return result;
 }
 
 double difference(double minuent, double subtrahent)
 {
-    return minuent-subtrahent;
+    if( minuent>= DBL_MAX || subtrahent>= DBL_MAX ||  minuent<DBL_MIN || subtrahent<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = minuent-subtrahent;
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
+    return result;
 }
 
 double multiplication(double multiply1, double multiply2)
 {
-    return multiply1*multiply2;
+    if( multiply1>= DBL_MAX ||multiply2>= DBL_MAX ||  multiply1<DBL_MIN || multiply2<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = multiply1*multiply2;
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
+    return result;
 }
 
 double division(double divident, double divisor)
 {
-    return divident/divisor;
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = divident/divisor;
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
+    return result;
 }
 double mod(double divident, double divisor)
 {
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = divident/divisor;
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
     return fmod(divident,divisor);
 }
 double factorial(double factor)
 {
+    if(factor>= DBL_MAX  ||  factor<DBL_MIN){
+        return DBL_MAX;
+
+    }
         if (factor == 1)
             return 1;
         else
@@ -700,17 +744,37 @@ double factorial(double factor)
 
 double powering(double base, double exponent)
 {
-    return pow(base,exponent);
+    if(base>= DBL_MAX ||exponent>= DBL_MAX ||  base<DBL_MIN || exponent<DBL_MIN){
+        return DBL_MAX;
+
+    }
+    double result = pow(base,exponent);
+    if(result>= DBL_MAX || result< DBL_MIN){
+        return DBL_MAX;
+    }
+    return result;
 }
 
 double m_sqrt(double base)
 {
+    if(base>= DBL_MAX  ||  base<DBL_MIN){
+        return DBL_MAX;
+
+    }
     return sqrt(base);
 }
 double cosine(double base){
+    if(base>= DBL_MAX  ||  base<DBL_MIN){
+        return DBL_MAX;
+
+    }
     return cos(base*M_PI/180);
 }
 double sine(double base)
 {
+    if(base>= DBL_MAX  ||  base<DBL_MIN){
+        return DBL_MAX;
+
+    }
     return sin(base*M_PI/180);
 }
