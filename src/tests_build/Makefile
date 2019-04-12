@@ -403,7 +403,8 @@ gmock-all.o: googletest-master/googlemock/src/gmock-all.cc googletest-master/goo
 		googletest-master/googlemock/src/gmock.cc
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gmock-all.o googletest-master/googlemock/src/gmock-all.cc
 
-tests.o: tests.cpp googletest-master/googletest/include/gtest/gtest.h \
+tests.o: tests.cpp ../math_lib_tests.cpp \
+		googletest-master/googletest/include/gtest/gtest.h \
 		googletest-master/googletest/include/gtest/internal/gtest-internal.h \
 		googletest-master/googletest/include/gtest/internal/gtest-port.h \
 		googletest-master/googletest/include/gtest/internal/gtest-port-arch.h \
@@ -423,8 +424,8 @@ tests.o: tests.cpp googletest-master/googletest/include/gtest/gtest.h \
 		googletest-master/googletest/include/gtest/gtest-test-part.h \
 		googletest-master/googletest/include/gtest/gtest-typed-test.h \
 		googletest-master/googletest/include/gtest/gtest_pred_impl.h \
-		../math_lib_tests.cpp \
-		../RebusCalc/rebuscalc-0.0.1/src/math_lib.cpp
+		../RebusCalc/rebuscalc-0.0.1/src/math_lib.cpp \
+		../RebusCalc/rebuscalc-0.0.1/src/math_lib.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tests.o tests.cpp
 
 ####### Install

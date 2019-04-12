@@ -373,12 +373,13 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-build_files/calc.o: src/calc.cpp src/mainwindow.h \
-		src/math_lib.cpp
+build_files/calc.o: src/calc.cpp src/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_files/calc.o src/calc.cpp
 
 build_files/mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
-		build_files/ui_mainwindow.h
+		build_files/ui_mainwindow.h \
+		src/math_lib.cpp \
+		src/math_lib.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build_files/mainwindow.o src/mainwindow.cpp
 
 build_files/moc_mainwindow.o: build_files/moc_mainwindow.cpp 

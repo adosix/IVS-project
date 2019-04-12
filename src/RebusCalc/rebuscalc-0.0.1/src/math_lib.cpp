@@ -668,12 +668,12 @@ int isValidInput(const char *expression)
 
 double addition(double addend1, double addend2)
 {
-    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<DBL_MIN || addend2<DBL_MIN){
+    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<-DBL_MAX || addend2<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = addend1+addend2;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -681,12 +681,12 @@ double addition(double addend1, double addend2)
 
 double difference(double minuent, double subtrahent)
 {
-    if( minuent>= DBL_MAX || subtrahent>= DBL_MAX ||  minuent<DBL_MIN || subtrahent<DBL_MIN){
+    if( minuent>= DBL_MAX || subtrahent>= DBL_MAX ||  minuent<-DBL_MAX || subtrahent<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = minuent-subtrahent;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -694,12 +694,12 @@ double difference(double minuent, double subtrahent)
 
 double multiplication(double multiply1, double multiply2)
 {
-    if( multiply1>= DBL_MAX ||multiply2>= DBL_MAX ||  multiply1<DBL_MIN || multiply2<DBL_MIN){
+    if( multiply1>= DBL_MAX ||multiply2>= DBL_MAX ||  multiply1<-DBL_MAX || multiply2<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = multiply1*multiply2;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -707,31 +707,31 @@ double multiplication(double multiply1, double multiply2)
 
 double division(double divident, double divisor)
 {
-    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<-DBL_MAX || divisor<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = divident/divisor;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return result;
 }
 double mod(double divident, double divisor)
 {
-    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<-DBL_MAX || divisor<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = divident/divisor;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return fmod(divident,divisor);
 }
 double factorial(double factor)
 {
-    if(factor>= DBL_MAX  ||  factor<DBL_MIN){
+    if(factor>= DBL_MAX  ||  factor<-DBL_MAX){
         return DBL_MAX;
 
     }
@@ -744,12 +744,12 @@ double factorial(double factor)
 
 double powering(double base, double exponent)
 {
-    if(base>= DBL_MAX ||exponent>= DBL_MAX ||  base<DBL_MIN || exponent<DBL_MIN){
+    if(base>= DBL_MAX ||exponent>= DBL_MAX ||  base<-DBL_MAX || exponent<-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = pow(base,exponent);
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result< -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -757,7 +757,7 @@ double powering(double base, double exponent)
 
 double m_sqrt(double base)
 {
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+    if(base>= DBL_MAX  ||  base<-DBL_MAX){
         return DBL_MAX;
 
     }
