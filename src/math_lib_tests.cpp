@@ -318,10 +318,3 @@ TEST(result, result)
     EXPECT_DOUBLE_EQ(-1839.8911561,result("0.765+4.3438439-(123*345/23)"));
     EXPECT_DOUBLE_EQ(14,result("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
 }
-
-
-int main(int argc, char **argv)
-{
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

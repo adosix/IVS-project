@@ -763,8 +763,12 @@ double m_sqrt(double base)
     }
     return sqrt(base);
 }
-double cosine(double base){
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+double cosine(double base)
+{
+    int lesser = base/360;
+    base = base - (double)(360 * lesser);
+
+    if(base>= DBL_MAX  ||  base<-DBL_MAX){
         return DBL_MAX;
 
     }
@@ -772,7 +776,10 @@ double cosine(double base){
 }
 double sine(double base)
 {
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+    int lesser = base/360;
+    base = base - (double)(360 * lesser);
+
+    if(base>= DBL_MAX  ||  base<-DBL_MAX){
         return DBL_MAX;
 
     }
