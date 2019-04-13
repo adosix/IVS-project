@@ -126,6 +126,14 @@ void SolveOperands(string & Result, int start){
                 count = 2;
                         continue;
             }
+            if(Result[IndexOfOperator]=='+' &&Result[IndexOfOperator+1]=='-' ){
+                Result[IndexOfOperator]='-';
+                Result.erase(IndexOfOperator+1,1);
+            }
+            if(Result[IndexOfOperator]=='-' &&Result[IndexOfOperator+1]=='-' ){
+                Result[IndexOfOperator]='+';
+                Result.erase(IndexOfOperator+1,1);
+            }
             num1=(GetNum1(Result,IndexOfOperator, 0, &IndexofNum1, start));
             num2=GetNum2( Result,  IndexOfOperator, &IndexofNum2);
             if(IndexofNum1<0) IndexofNum1=0;
@@ -204,11 +212,10 @@ void SolvePowFact(string & Result, int start, int *numOfOperands){
 
     int indexOfNum1;
     int indexOfNum2;
-
-    int count=0; // ancillary variable
     for(unsigned int IndexOfOperator = start; IndexOfOperator < Result.length(); IndexOfOperator++){
         if(Result[IndexOfOperator]=='^' || Result[IndexOfOperator]=='!'){
             num1=(GetNum1(Result,IndexOfOperator, numOfOperands, &indexOfNum1, start));
+             if(indexOfNum1<0) indexOfNum1=0;
             if(Result[IndexOfOperator] == '!'){
                  if(fmod(num1,1.0) != 0 || num1<=0){
                        Result="DBL_MAX";
@@ -221,13 +228,10 @@ void SolvePowFact(string & Result, int start, int *numOfOperands){
                } // End of if, where operand is '!'
                else{
                 num2=GetNum2( Result,  IndexOfOperator, &indexOfNum2);
-                   if(indexOfNum1==0)
-                   {
-                       indexOfNum1--;
-                   } // when I have increased value of 'indexOfNum1',
+
                   num1= powering(num1,num2);
                   string substr=std::to_string(num1);
-                  Result.replace(indexOfNum1, (indexOfNum2 -indexOfNum1)-1,substr);
+                  Result.replace(indexOfNum1, (indexOfNum2 -indexOfNum1),substr);
                   IndexOfOperator=indexOfNum1+substr.length()-1;
                } // end of else, that matches '^'
         }//end of if statement, that matches  '!' or '^' in for loop
@@ -325,7 +329,7 @@ void GetValueFromSinCosSqrt(string & tmp)
 void BracketEvalvuation(string & evalBracket, int start, int end){
 
      double num1=0;
-     double num2=0;    
+     double num2=0;
      int min_atStart=0;
      int numofSin=0;
      int numofCos=0;
@@ -380,7 +384,8 @@ void BracketEvalvuation(string & evalBracket, int start, int end){
 int CharisOperand(const char *expression, int position){
 
     if(expression[position]=='*' ||expression[position]=='/' ||expression[position]=='%' ||expression[position]=='+' ||
-            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||expression[position]=='s' ||expression[position]=='('||expression[position]=='!' ){
+            expression[position]=='-' ||expression[position]=='n' ||expression[position]=='t' ||
+            expression[position]=='s' ||expression[position]=='('||expression[position]=='!' ||expression[position]==')'){
         return 0;
     }
     return -1;
@@ -611,14 +616,16 @@ int isValidInput(const char *expression)
                       &numofCos, &numofStrq, &numofFact, &numofMultPrecedence, &numofOperands);
      if(numofLbracket!=0){
          int  bracket [numofLbracket];
+         int IndexLBracket;
+         unsigned int IndexRBracket;
          count=0;
-        for(unsigned int IndexRBracket = 0; IndexRBracket  < parseResult.length(); IndexRBracket ++){
+        for(IndexRBracket = 0; IndexRBracket  < parseResult.length(); IndexRBracket ++){
             if(parseResult[IndexRBracket ]=='('){
                 bracket[count]=IndexRBracket ;
                 count++;
             }
             if(parseResult[IndexRBracket ]==')'){
-                int IndexLBracket = bracket[count-1]; // j= position of lBracket
+                 IndexLBracket = bracket[count-1]; // j= position of lBracket
                                          //i=posiion of rBracket
                 count--;
                 BracketEvalvuation(parseResult, IndexLBracket , IndexRBracket );
@@ -629,10 +636,10 @@ int isValidInput(const char *expression)
             }
 
         }
-        if(count> 0){
-            int IndexLBracket = bracket[count-1];
-              BracketEvalvuation(parseResult, IndexLBracket , parseResult.length());
+        while(count> 0){
             count--;
+            int IndexLBracket = bracket[count];
+              BracketEvalvuation(parseResult, IndexLBracket , parseResult.length());
         }
 
      } // end of condition to remove brackets
@@ -666,14 +673,15 @@ int isValidInput(const char *expression)
      return std::stod(parseResult);
 }
 
+
 double addition(double addend1, double addend2)
 {
-    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<DBL_MIN || addend2<DBL_MIN){
+    if(addend1>= DBL_MAX || addend2>= DBL_MAX || addend1<=-(DBL_MAX) || addend2<=-(DBL_MAX)){
         return DBL_MAX;
 
     }
     double result = addend1+addend2;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -681,12 +689,12 @@ double addition(double addend1, double addend2)
 
 double difference(double minuent, double subtrahent)
 {
-    if( minuent>= DBL_MAX || subtrahent>= DBL_MAX ||  minuent<DBL_MIN || subtrahent<DBL_MIN){
+    if( minuent>= DBL_MAX || subtrahent>= DBL_MAX ||  minuent<=-DBL_MAX || subtrahent<=-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = minuent-subtrahent;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -694,12 +702,12 @@ double difference(double minuent, double subtrahent)
 
 double multiplication(double multiply1, double multiply2)
 {
-    if( multiply1>= DBL_MAX ||multiply2>= DBL_MAX ||  multiply1<DBL_MIN || multiply2<DBL_MIN){
+    if( multiply1>= DBL_MAX ||multiply2>= DBL_MAX ||  multiply1<=-DBL_MAX || multiply2<=-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = multiply1*multiply2;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -707,31 +715,31 @@ double multiplication(double multiply1, double multiply2)
 
 double division(double divident, double divisor)
 {
-    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<=-DBL_MAX || divisor<=-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = divident/divisor;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
 }
 double mod(double divident, double divisor)
 {
-    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<DBL_MIN || divisor<DBL_MIN){
+    if(divident>= DBL_MAX ||divisor>= DBL_MAX ||  divident<=-DBL_MAX || divisor<=-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = divident/divisor;
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return fmod(divident,divisor);
 }
 double factorial(double factor)
 {
-    if(factor>= DBL_MAX  ||  factor<DBL_MIN){
+    if(factor>= DBL_MAX  ||  factor<=-DBL_MAX){
         return DBL_MAX;
 
     }
@@ -744,12 +752,12 @@ double factorial(double factor)
 
 double powering(double base, double exponent)
 {
-    if(base>= DBL_MAX ||exponent>= DBL_MAX ||  base<DBL_MIN || exponent<DBL_MIN){
+    if(base>= DBL_MAX ||exponent>= DBL_MAX ||  base<=-DBL_MAX || exponent<=-DBL_MAX){
         return DBL_MAX;
 
     }
     double result = pow(base,exponent);
-    if(result>= DBL_MAX || result< DBL_MIN){
+    if(result>= DBL_MAX || result<= -DBL_MAX){
         return DBL_MAX;
     }
     return result;
@@ -757,14 +765,18 @@ double powering(double base, double exponent)
 
 double m_sqrt(double base)
 {
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+    if(base>= DBL_MAX  ||  base<=-DBL_MAX){
         return DBL_MAX;
 
     }
     return sqrt(base);
 }
-double cosine(double base){
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+double cosine(double base)
+{
+    int lesser = base/360;
+    base = base - (double)(360 * lesser);
+
+    if(base>= DBL_MAX  ||  base<=-DBL_MAX){
         return DBL_MAX;
 
     }
@@ -772,7 +784,10 @@ double cosine(double base){
 }
 double sine(double base)
 {
-    if(base>= DBL_MAX  ||  base<DBL_MIN){
+    int lesser = base/360;
+    base = base - (double)(360 * lesser);
+
+    if(base>= DBL_MAX  ||  base<=-DBL_MAX){
         return DBL_MAX;
 
     }
