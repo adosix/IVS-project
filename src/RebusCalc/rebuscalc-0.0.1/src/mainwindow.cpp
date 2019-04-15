@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
    delete ui;
 }
 
-bool areParanthesisBalanced(QString expr)
+bool MainWindow::areParanthesisBalanced(QString expr)
 {
     int nmb = 0;
 

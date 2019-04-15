@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include "math_lib.h"
 #include "cmath"
+
 using namespace std;
 double GetNum2(string getNum, int IndexofOperator, int* indexofNum2){
     int decimalNumber=0;
