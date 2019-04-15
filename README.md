@@ -14,31 +14,30 @@ Authors
 ------
 
 Rebus
-- xjezik03 Andrej Ježík
-- xkubik34 Tibor Kubík
-- xdubec01 Branislav Dubec
-- xstrba05 Boris Štrbák
+- xjezik03 Andrej Ježík [xjezik03@stud.fit.vutbr.cz]
+- xkubik34 Tibor Kubík  [xkubik34@stud.fit.vutbr.cz]
+- xdubec01 Branislav Dubec  [xdubec01@stud.fit.vutbr.cz]
+- xstrba05 Boris Štrbák [xstrba05@stud.fit.vutbr.cz]
 
 Licence
 -------
 
 GNU GPL v.3 licence
--------------------
 
 Getting Started
 ---------------
 
-RebusCalc is advanced app which helps u with daily mathematical problems but also due to it's advanced functionality you can use it for many other purposes as scientific calculations
+RebusCalc is advanced app which helps you with daily mathematical problems but also due to it's advanced functionality you can use it for many other purposes as scientific calculation.
 
 
 Installing
 ----------
 
-Instalation is very simple u need to double click .deb file which will install application automatically
+Instalation is very simple. All you have to do is to open .deb file, which will install application automatically.
 
 Contributing
 ------------
 
-If u would like to enhance our project please contact us via e-mail: rebuscalc@gmail.com
+If you would like to enhance our project please contact us via e-mail: rebuscalc@gmail.com
 
 
