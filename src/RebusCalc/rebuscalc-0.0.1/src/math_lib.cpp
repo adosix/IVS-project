@@ -282,7 +282,7 @@ void GetValueFromSinCosSqrt(string & tmp)
 {
     int indexofNum=0;
     double num;
-    for(int i = 0; i < tmp.length(); i++){
+    for(unsigned int i = 0; i < tmp.length(); i++){
         if(tmp[i] == 's' ){
             if(tmp[i+1] == 'i'){
                 int j = i+2;
@@ -329,8 +329,6 @@ void GetValueFromSinCosSqrt(string & tmp)
 
 void BracketEvalvuation(string & evalBracket, int start, int end){
 
-     double num1=0;
-     double num2=0;
      int min_atStart=0;
      int numofSin=0;
      int numofCos=0;
@@ -370,7 +368,7 @@ void BracketEvalvuation(string & evalBracket, int start, int end){
     if(numofCos >0|| numofSin > 0) start=start-3;
      if(numofStrq>0)start=start-4;
      evalBracket.replace(start, end-start+1, tmp);
-     for(int i = start; i < evalBracket.length(); i++){
+     for(unsigned int i = start; i < evalBracket.length(); i++){
          if(evalBracket[i] == ')')
          {
             evalBracket.erase(i,1);
@@ -608,9 +606,6 @@ int isValidInput(const char *expression)
      int numofOperands=0;  //+,-
 
 
-     double num1=0;
-     double num2=0;
-     int decimalNumber=0;
 
 
      GetNumOfOperands(expression, &min_atStart, &numofLbracket, &numofSin,
