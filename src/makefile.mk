@@ -1,4 +1,5 @@
-.PHONY: profile
+.PHONY: profile tests
+all: $(TARGET) profile
 run:
 	test -f $(TARGET) || make $(TARGET)
 	./$(TARGET)
@@ -20,8 +21,12 @@ tests/tests_build/Makefile: tests/tests_build/tests.pro
 
 ########################################################
 
-profile:
-	g++ --std=c++11 -pipe -Wall -Wextra -O2 -g -pg ./profiling.cpp -o profile
+profile: 
+	test -f profile || make profile_comp
+	./profile
+
+profile_comp:
+	g++ --std=c++11 -pipe -Wall -Wextra -g -pg ./profiling.cpp -o profile
 
 pack:
 	echo pack

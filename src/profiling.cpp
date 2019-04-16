@@ -75,12 +75,13 @@ void getRandom1000(){
     }
 
 int main(int argc, char* argv[]){
-    double sum=0,sum2=0;
+  	(void) argc;
+		(void) argv;  
+		double sum=0,sum2=0;
     float number;
     int count = 0;
     double array[value] ;
-		printf("nasrat");
-    while(scanf("%g", &number)){
+    while(scanf("%g", &number) == 1){
         array[count] = number;
         count= addition(count,1);
         sum = addition(sum,number);

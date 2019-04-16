@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = RebusCalc
 TEMPLATE = app
 VPATH = rebuscalc/
-CONFIG += release
+CONFIG += debug
 
 
 # The following define makes your compiler emit warnings if you use
@@ -43,7 +43,10 @@ QMAKE_CLEAN = moc* \
 						$(TARGET) \
 						runTests \
 						profile \
-						-r doc 
+						-r doc \
+						*.pro.user \
+						*gmon* \
+						.qmake.stash \	
 
 DESTDIR = .
 OBJECTS_DIR = ./rebuscalc/build_files

@@ -625,6 +625,7 @@ int isValidInput(const char *expression)
                                          //i=posiion of rBracket
                 count--;
                 BracketEvalvuation(parseResult, IndexLBracket , IndexRBracket );
+                IndexRBracket = IndexLBracket + 1;
                 if(parseResult=="WRONG"){
                     return DBL_MAX;
                 }

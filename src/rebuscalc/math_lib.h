@@ -301,6 +301,14 @@ double mod(double divident, double divisor);
 /**
 * @author  Boris Strbak
 * @brief Gets sin of 'base'.
+* <p>
+*   Additional information: To simplify
+*   calculation N*360 is substracted from
+*   base (N is integer part of base/360), because value of
+*   sine is periodically repeated on interval
+*   2kPI. And then library function sin(alfa) is
+*   called, where alfa is base converted to radians
+* </p>
 * @param double base;
 * @return sin(base);
 */
@@ -308,6 +316,14 @@ double sine(double base);
 /**
 * @author  Boris Strbak
 * @brief Gets cos of 'base'.
+* <p>
+*   Additional information: To simplify
+*   calculation N*360 is substracted from
+*   base (N is integer part of base/360), because value of
+*   cosine is periodically repeated on interval
+*   2kPI. And then library function cos(alfa) is
+*   called, where alfa is base converted to radians
+* </p>
 * @param double base;
 * @return cos(base);
 */
