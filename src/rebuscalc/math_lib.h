@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @file math_lib.h
  * @brief Mathematical library for RebusCalculator
  * @author
@@ -21,7 +21,7 @@ using namespace std;
  * @{
  */
 /**
-   * 
+   *
    * @author    Branislav Dubec
    *
    * @brief      Return double value of a number in expression.
@@ -288,7 +288,7 @@ double m_sqrt(double base);
 /**
 *
 * @author  Branislav Dubec
-* 
+*
 * @brief Gets modulo of 'divident' modulo 'divisor'.
 * <p>
 * Additional information: Check if 'divisor' is 0 before calling this function.

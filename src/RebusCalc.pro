@@ -10,8 +10,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = RebusCalc
 TEMPLATE = app
-SUBDIRS = src
-VPATH = src/
+VPATH = rebuscalc/
+CONFIG += release
+
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -37,13 +38,27 @@ HEADERS += \
 FORMS += \
       mainwindow.ui 
 
-QMAKE_CLEAN = moc*
+QMAKE_CLEAN = moc* \
+						*.o \
+						$(TARGET) \
+						runTests \
+						profile \
+						-r doc 
 
 DESTDIR = .
-OBJECTS_DIR = ./build_files
-MOC_DIR = ./build_files
-UI_DIR = ./build_files
+OBJECTS_DIR = ./rebuscalc/build_files
+MOC_DIR = ./rebuscalc/build_files
+UI_DIR = ./rebuscalc/build_files
 
 # install
 target.path = $$PREFIX/bin
 INSTALLS += target
+
+QMAKE_EXTRA_INCLUDES += makefile.mk
+
+#QMAKE_EXTRA_TARGETS += run doc profile pack test tests
+#run.commands = test -f $(TARGET) || make $(TARGET) && ./$(TARGET)
+#doc.commands = doxygen
+#test.commands = test -f runTests || make tests && ./runTests 
+#tests.commands = echo compile tests first
+#profile.commands = echo profiling

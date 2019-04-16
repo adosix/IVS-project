@@ -1,5 +1,5 @@
 #include <limits>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "math_lib.cpp"
 
 
@@ -333,11 +333,4 @@ TEST(result, result)
     //jedno z tychto hadze stoi exception
     EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3"));
     EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3*fact(1)"));
-}
-
-
-int main(int argc, char **argv)
-{
-  testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
 }

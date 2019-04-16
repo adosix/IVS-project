@@ -40,7 +40,9 @@ public:
     /**
      * @brief Destroys Main Window of calculator.
      */
+
     ~MainWindow();
+private:
     Ui::MainWindow *ui;
     /**
      * @}
@@ -60,9 +62,12 @@ public:
      * @return 0 if valid, otherwise -1.
      */
     bool areParanthesisBalanced(QString expr);
+
+
+private slots:
 /**
  * @defgroup Pressed_Mathematical_Button
-
+ * Functions to extract data when buttons for digits & mathematic operations are pressed.
  * @{
  */
 /**
@@ -76,7 +81,7 @@ public:
  * </p>
 */
 
-    void MainWindow::on_pushButton_comma_released();
+    void on_pushButton_comma_released();
     /**
      * @author Tibor Kubik
      * @brief Writes digit on display of calculator.
@@ -107,16 +112,6 @@ public:
      * </p>
     */
     void on_pushButton_br_right_released();
-    /**
-     * @author Tibor Kubik
-     * @brief Writes '(' on display of calculator.
-     * <p>
-     * Additional informations: Number of displayed characters has to be
-     * lower than 30.  Sets "lastPressedEquals" to false.
-     *
-     * </p>
-    */
-    void on_pushButton_C_released();
     /**
      * @author Tibor Kubik
      * @brief Writes '!' on display of calculator.
@@ -222,6 +217,7 @@ public:
      */
     /**
      * @defgroup Pressed_Special_Button
+     * Functions to extract data when buttons 'C', 'DEL', 'ANS' or '=' are pressed.
      * @{
      */
         /**

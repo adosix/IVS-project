@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
    delete ui;
 }
 
-bool areParanthesisBalanced(QString expr)
+bool MainWindow::areParanthesisBalanced(QString expr)
 {
     int nmb = 0;
 
@@ -518,4 +518,3 @@ void MainWindow::on_checkBox_toggled(bool checked)
         ui->pushButton_equals->style()->polish(ui->pushButton_equals);
     }
 }
-

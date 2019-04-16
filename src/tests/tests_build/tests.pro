@@ -1,4 +1,3 @@
-GOOGLETEST_DIR = googletest-master
 include(gtest_dependency.pri)
 
 TEMPLATE = app
@@ -6,12 +5,13 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG += thread
 CONFIG -= qt
-DESTDIR = ../
+DESTDIR = ../..
 TARGET = runTests
-INCLUDEPATH += ../RebusCalc/rebuscalc-0.0.1/src/ \
-                 ../
 
-VPATH = ../RebusCalc/rebuscalc-0.0.1/src/ \
+INCLUDEPATH += ../ \
+    ../../rebuscalc/
+
+VPATH = ../../rebuscalc/ \
         ../
 
 SOURCES +=  tests.cpp\
