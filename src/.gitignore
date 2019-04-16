@@ -1,2 +1,10 @@
 /runTests
-/tests_build/tests.pro.user
+**/build_files
+*.o
+*.pro.user
+*.stash
+/doc
+/*gmon*
+/profile
+/RebusCalc
+*googletest-master
