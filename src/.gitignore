@@ -1,5 +1,6 @@
 /runTests
 **/build_files
+**/debug
 *.o
 *.pro.user
 *.stash

@@ -256,7 +256,7 @@ void MainWindow::on_pushButton_equals_released() {
             ui->result->setText("error");
         }
        else{
-        QString valueAsString = QString::number(result(cStrData));
+        QString valueAsString = QString::number(result(cStrData), 'g', 6);
         ui->result->setText(valueAsString);
        }
     }
