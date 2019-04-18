@@ -1,4 +1,6 @@
 /runTests
+/rebuscalc/Makefile
+/tests/tests_build/Makefile
 **/build_files
 **/debug
 *.o
@@ -8,4 +10,4 @@
 /*gmon*
 /profile
 /RebusCalc
-*googletest-master
+**googletest-master
