@@ -244,8 +244,8 @@ void MainWindow::on_pushButton_pow_released() {
 void MainWindow::on_pushButton_equals_released() {
 
     QString a = ui->temp_text->text();
-    QByteArray inBytes = a.toUtf8();
-    const char* cStrData = inBytes.constData();
+    QByteArray inBytes = a.toLocal8Bit();
+    const char* cStrData = inBytes.data();
     lastPressedEquals = true;
     int aca = isValidInput(cStrData);
     if(aca == -1){
@@ -256,7 +256,8 @@ void MainWindow::on_pushButton_equals_released() {
             ui->result->setText("error");
         }
        else{
-        QString valueAsString = QString::number(result(cStrData), 'g', 6);
+//        std::cout << "num is " << num << "\n";
+        QString valueAsString = QString::number(result(cStrData));
         ui->result->setText(valueAsString);
        }
     }

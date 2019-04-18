@@ -11,8 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = RebusCalc
 TEMPLATE = app
 VPATH =
-QMAKE_LFLAGS_RELEASE -= -Wl,-s
-QMAKE_CXXFLAGS += -g
 
 CONFIG(debug, debug|release) {
     DESTDIR = "debug"
@@ -56,10 +54,3 @@ UI_DIR = build_files
 # install
 target.path = $$PREFIX/bin
 INSTALLS += target
-
-#QMAKE_EXTRA_TARGETS += run doc profile pack test tests
-#run.commands = test -f $(TARGET) || make $(TARGET) && ./$(TARGET)
-#doc.commands = doxygen
-#test.commands = test -f runTests || make tests && ./runTests 
-#tests.commands = echo compile tests first
-#profile.commands = echo profiling

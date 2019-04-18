@@ -595,6 +595,7 @@ int isValidInput(const char *expression)
      int count=0;
 
      string parseResult=(string) expression; // our expression, easier work with string
+//     std::cout << parseResult;
 
      int min_atStart=0;
      int numofLbracket=0;
@@ -666,6 +667,8 @@ int isValidInput(const char *expression)
          if(numofOperands>0){
             SolveOperands(parseResult, 0);
           }
+
+//     std::cout << "ParseRsult as a string is: " << parseResult << "\n";
 
      return std::stod(parseResult);
 }
