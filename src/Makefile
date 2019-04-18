@@ -18,8 +18,8 @@ run:
 	./$(TARGET)
 
 $(TARGET): $(PROJDIR)/Makefile
-	test -f $(PROJDIR)/debug/RebusCalc && make debug_clear || echo fail
-	cd $(PROJDIR) && make && cd ..
+	test -f $(PROJDIR)/debug/RebusCalc && make debug_clear || : #do nothing
+		cd $(PROJDIR) && make && cd ..
 
 debug_clear:
 	rm -rf $(PROJDIR)/debug/RebusCalc
@@ -69,7 +69,7 @@ clean:
 	rm -rf $(TARGET) $(TSTTARGET) $(PROFILETARGET)
 	rm -rf doc
 	rm -rf *gmon*
-	cd tests/tests_build/ && make clean && cd ../../rebuscalc/ && make clean && cd ..
+	cd tests/tests_build/ && make clean && make distclean && cd ../../rebuscalc/ && make clean && make distclean && cd ..
 	find . -name \*.pro.user -type f -delete
 	find . -name \*.stash -type f -delete
 	rm -rf rebuscalc/debug/*
