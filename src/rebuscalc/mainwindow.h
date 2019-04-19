@@ -4,8 +4,10 @@
  *
  * @file mainwindow.h
  *
- * @brief Graphical User Interface for RebusCalculator
- *  \section functions Reference to functions in abstract groups.
+ * @brief Graphical User Interface for RebusCalculator.
+ * <p>
+ *  Reference to functions in abstract groups:
+ * </p>
   * @ref Sets_GUI\n
   * @ref Pressed_Mathematical_Button\n
   * @ref Pressed_Special_Button
