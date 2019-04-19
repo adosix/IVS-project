@@ -6,6 +6,7 @@ TARGET=RebusCalc
 PROJDIR=rebuscalc
 TSTTARGET=runTests
 PROFILETARGET=profile
+PACKNAME=xdubec01_xkubik34_xjezik03_xstrba05
 
 .PHONY: profile $(TARGET) doc install uninstall
 
@@ -55,9 +56,24 @@ profile_comp:
 	g++ --std=c++11 -pipe -Wall -Wextra -g -pg ./profiling.cpp -o $(PROFILETARGET)
 
 #########################################################
+###################### pack #############################
 
-pack:
-	echo pack
+pack: ../../$(PACKNAME)
+	make doc
+	test -d $</doc || mkdir $</doc
+	cp -ur doc $<
+	make clean
+	test -d $</repo || mkdir $</repo 
+	cp -ur ../ $</repo
+	mv $< ./
+	zip -r $(PACKNAME).zip $(PACKNAME)
+	rm -rf $(PACKNAME)
+
+../../$(PACKNAME):
+	mkdir $@ 
+	mkdir $@/repo
+
+#########################################################
 
 install: 
 	cd $(PROJDIR) && make install && cd ..
@@ -67,9 +83,9 @@ uninstall:
 	
 clean: 
 	rm -rf $(TARGET) $(TSTTARGET) $(PROFILETARGET)
-	rm -rf doc
+	rm -rf doc *gmon* *.zip rebuscalc/debug/*
 	rm -rf *gmon*
-	cd tests/tests_build/ && make clean && make distclean && cd ../../rebuscalc/ && make clean && make distclean && cd ..
+	test -f tests/tests_build/Makefile && cd tests/tests_build/ && make clean && make distclean || :
+	test -f rebuscalc/Makefile && cd rebuscalc/ && make clean && make distclean && cd .. || :
 	find . -name \*.pro.user -type f -delete
 	find . -name \*.stash -type f -delete
-	rm -rf rebuscalc/debug/*
