@@ -7,6 +7,7 @@ PROJDIR=rebuscalc
 TSTTARGET=runTests
 PROFILETARGET=profile
 PACKNAME=xdubec01_xkubik34_xjezik03_xstrba05
+PROJVER=0.0.1
 
 .PHONY: profile $(TARGET) doc install uninstall
 
@@ -62,6 +63,17 @@ pack: ../../$(PACKNAME)
 	make doc
 	test -d $</doc || mkdir $</doc
 	cp -ur doc $<
+	mv rebuscalc rebuscalc-$(PROJVER)
+	tar -czvf rebuscalc_$(PROJVER).orig.tar.gz --exclude='debian' rebuscalc-$(PROJVER)
+	cd rebuscalc-$(PROJVER) && dpkg-buildpackage -uc -us -rfakeroot
+	cd ..
+	rm -rf RebusCalc
+	mv rebuscalc-$(PROJVER) rebuscalc
+	cp ../dokumentace.pdf dokumentace.pdf
+	zip -r RebusCalc.zip rebuscalc*0.0.1* dokumentace.pdf
+	rm -rf rebuscalc*0.0.1* dokumentace.pdf
+	mkdir $</install
+	mv RebusCalc.zip $</install
 	make clean
 	test -d $</repo || mkdir $</repo 
 	cp -ur ../ $</repo

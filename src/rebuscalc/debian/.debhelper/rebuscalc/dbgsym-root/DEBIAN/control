@@ -1,0 +1,13 @@
+Package: rebuscalc-dbgsym
+Package-Type: ddeb
+Source: rebuscalc
+Version: 0.0.1-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Boris Štrbák <borisstrbak@gmail.com>
+Installed-Size: 442
+Depends: rebuscalc (= 0.0.1-1)
+Section: debug
+Priority: optional
+Description: debug symbols for rebuscalc
+Build-Ids: b01a3250d47b147895cc6c5d27595366d60d534a

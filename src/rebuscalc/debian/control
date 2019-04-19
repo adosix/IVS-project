@@ -1,0 +1,15 @@
+Source: rebuscalc
+Section: Utilities
+Priority: extra
+Maintainer: Boris Štrbák <borisstrbak@gmail.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: https://anonscm.debian.org/git/collab-maint/rebuscalc.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/rebuscalc.git
+
+Package: rebuscalc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: RebusCalc
+ RebusCalc is advanced app which helps you with daily mathematical problems but also due to it's advanced functionality you can use it for many other purposes as scientific calculation.
