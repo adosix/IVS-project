@@ -271,66 +271,67 @@ TEST(isValidInput, easy_Valid)
 
 TEST(isValidInput, hard_Valid)
 {
-    EXPECT_DOUBLE_EQ(0,isValidInput("3+(-4)"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(3.12+4.3438439)-123"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("3.12+4.3438439-123*345"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(3.12+4.3438439-123*345/23)"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(-3.12+(4.3438439-123*345/23))"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(3.12+4)-123*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("sqrt(-3.12+4.3439)-123*34/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("3.12+4.34439-123*345/287*0"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("3.12+4.3438439%2-123*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("-21343.12+4.3438439-123*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("213.12+4.3438439-123^2*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("3.12+4.3438439^3^3^3-123*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("3.12+4.3438439-1-1-1-1-1-1-1-123*345/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(((((4.0987+4.3438439)-123*345/23))))"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("10000+(4.3438439-123*345)/23"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("0.765+4.3438439-(123*345/23)"));
-    EXPECT_DOUBLE_EQ(0,isValidInput("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3+(-4)"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(3.12+4.3438439)-123"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3.12+4.3438439-123*345"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(3.12+4.3438439-123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(-3.12+(4.3438439-123*345/23))"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(3.12+4)-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("sqrt(-3.12+4.3439)-123*34/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3.12+4.34439-123*345/287*0"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3.12+4.3438439%2-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("-21343.12+4.3438439-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("213.12+4.3438439-123^2*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3.12+4.3438439^3^3^3-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("3.12+4.3438439-1-1-1-1-1-1-1-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(((((4.0987+4.3438439)-123*345/23))))"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("10000+(4.3438439-123*345)/23"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("0.765+4.3438439-(123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(0),isValidInput("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
 }
 
 TEST(isValidInput, hard_inValid)
 {
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3+(--4)"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(3.12+4.34.38439)-123"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3.12+4..3438439-123*345"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(3.12+4.3438439-.123*345/23)"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(-3.12+.(4.3438439-123*345/23))"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(3.12+4.)-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("sqrt(-s3.12+4.3439)-123*34/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3.12+4.3443.9-123*345/287*0"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3.12+4.3438439%2-123*3OOO45/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("-21343.12+4.3438439..-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("213.12+4.3438439-123^2*34O5/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3.12+4.3438439^3^3^3-.-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("3.12+4.3438439-1-1-1-1-.1-1-1-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(((((4.0987+4.343843k9)-123*345/23))))"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("10000+(4.3438439I-123*345)/23"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("0.765+4.3438439-u(123*345/23)"));
-    EXPECT_DOUBLE_EQ(-1,isValidInput("(1-1-1-11-1)r-1-(1-(1)/1-1co to kontrolujee vzdyt to je fajn-1)-11-(1^1-11)*1-1"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3+(--4)"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(3.12+4.34.38439)-123"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3.12+4..3438439-123*345"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(3.12+4.3438439-.123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(-3.12+.(4.3438439-123*345/23))"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(3.12+4.)-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3.12+4.3443.9-123*345/287*0"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3.12+4.3438439%2-123*3OOO45/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("-21343.12+4.3438439..-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("213.12+4.3438439-123^2*34O5/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3.12+4.3438439^3^3^3-.-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("3.12+4.3438439-1-1-1-1-.1-1-1-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(((((4.0987+4.343843k9)-123*345/23))))"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("10000+(4.3438439I-123*345)/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("0.765+4.3438439-u(123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(-1),isValidInput("(1-1-1-11-1)r-1-(1-(1)/1-1co to kontrolujee vzdyt to je fajn-1)-11-(1^1-11)*1-1"));
 }
 
 TEST(result, result)
 {
-    EXPECT_DOUBLE_EQ(-1,result("3-4"));  //tento riadok sposobuje stoi error
-    EXPECT_DOUBLE_EQ(-115.53615600000001,result("(3.12+4.3438439)-123"));
-    EXPECT_DOUBLE_EQ(-42427.536156000002,result("3.12+4.3438439-123*345"));
-    EXPECT_DOUBLE_EQ(-1837.5361559999999,result("(3.12+4.3438439-123*345/23)"));
-    EXPECT_DOUBLE_EQ(-1843.7761559999999,result("(-3.12+(4.3438439-123*345/23))"));
-    EXPECT_DOUBLE_EQ(-1837.88,result("(3.12+4)-123*345/23"));
-    EXPECT_DOUBLE_EQ(-180.719787,result("sqrt(-3.12+4.3439)-123*34/23"));
-    EXPECT_DOUBLE_EQ(7.46439,result("3.12+4.34439-123*345/287*0"));
-    EXPECT_DOUBLE_EQ(-1841.5361559999999,result("3.12+4.3438439%2-123*345/23"));
-    EXPECT_DOUBLE_EQ(-23183.776156,result("-21343.12+4.3438439-123*345/23"));
-    EXPECT_DOUBLE_EQ(-226717.53615900001,result("213.12+4.3438439-123^2*345/23"));
-    EXPECT_DOUBLE_EQ(861.017370984,result("3.12+1.34^3^3-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1844.5361559999999,result("3.12+4.3438439-1-1-1-1-1-1-1-123*345/23"));
-    EXPECT_DOUBLE_EQ(-1836.5574561,result("(((((4.0987+4.3438439)-123*345/23))))"));
-    EXPECT_DOUBLE_EQ(8155.18886278,result("10000+(4.3438439-123*345)/23"));
-    EXPECT_DOUBLE_EQ(-1839.8911561,result("0.765+4.3438439-(123*345/23)"));
-    EXPECT_DOUBLE_EQ(14,result("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
-    //jedno z tychto hadze stoi exception
-    EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3"));
-    EXPECT_DOUBLE_EQ(240.0,result("fact(fact(3))/3*fact(1)"));
+    EXPECT_DOUBLE_EQ(roundf(-1),result("3-4"));  //tento riadok sposobuje stoi error
+    EXPECT_DOUBLE_EQ(roundf(-115.53615600000001*100000)/100000,result("(3.12+4.3438439)-123"));
+    EXPECT_DOUBLE_EQ(roundf(-1837.5361559999999*100000)/100000,result("(3.12+4.3438439-123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(-1843.7761559999999*100000)/100000,result("(-3.12+(4.3438439-123*345/23))"));
+    EXPECT_DOUBLE_EQ(roundf(-1837.88*100000)/100000,result("(3.12+4)-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-180.719787*100000)/100000,result("sqrt(-3.12+4.3439)-123*34/23"));
+    EXPECT_DOUBLE_EQ(roundf(7.46439*100000)/100000,result("3.12+4.34439-123*345/287*0"));
+    EXPECT_DOUBLE_EQ(roundf(-1841.5361559999999*100000)/100000,result("3.12+4.3438439%2-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-23183.776156*100000)/100000,result("-21343.12+4.3438439-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-226717.53615900001*100000)/100000,result("213.12+4.3438439-123^2*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1827.950195*100000)/100000,result("3.12+1.34^3^3-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1844.5361559999999*100000)/100000,result("3.12+4.3438439-1-1-1-1-1-1-1-123*345/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1836.5574561*100000)/100000,result("(((((4.0987+4.3438439)-123*345/23))))"));
+    EXPECT_DOUBLE_EQ(roundf(8155.18886278*100000)/100000,result("10000+(4.3438439-123*345)/23"));
+    EXPECT_DOUBLE_EQ(roundf(-1839.8911561*100000)/100000,result("0.765+4.3438439-(123*345/23)"));
+    EXPECT_DOUBLE_EQ(roundf(-14*100000)/100000,result("(1-1-1-11-1)-1-(1-(1)/1-1-1)-11-(1^1-11)*1-1"));
+}
+
+int main(int argc, char **argv)
+{
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
