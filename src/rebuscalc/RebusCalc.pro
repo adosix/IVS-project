@@ -17,7 +17,7 @@ CONFIG(debug, debug|release) {
 		message(Debug mode on)
 }
 CONFIG(release, debug|release) {
-    DESTDIR = "../"
+    DESTDIR = "./"
 		message(Release mode on)
 }
 

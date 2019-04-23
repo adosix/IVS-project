@@ -70,8 +70,9 @@ pack: ../../$(PACKNAME)
 	rm -rf RebusCalc
 	mv rebuscalc-$(PROJVER) rebuscalc
 	cp ../dokumentace.pdf dokumentace.pdf
-	zip -r RebusCalc.zip rebuscalc*0.0.1* dokumentace.pdf
-	rm -rf rebuscalc*0.0.1* dokumentace.pdf
+	mv dokumentace.pdf README.pdf
+	zip -r RebusCalc.zip *.deb *.orig.tar.gz README.pdf
+	rm -rf rebuscalc*0.0.1* README.pdf
 	mkdir $</install
 	mv RebusCalc.zip $</install
 	make clean
