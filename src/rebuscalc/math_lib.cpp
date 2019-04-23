@@ -669,8 +669,8 @@ int isValidInput(const char *expression)
           }
 
 //     std::cout << "ParseRsult as a string is: " << parseResult << "\n";
-
-     return std::stod(parseResult);
+	 return roundf(std::stod(parseResult) * 100000) / 100000;
+ 
 }
 
 
